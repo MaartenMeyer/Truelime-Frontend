@@ -1,0 +1,30 @@
+div {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.btnDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dashBtn {
+  background-color: #8bd201;
+  color: #ffffff;
+  font-size: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+mdb-card {
+  margin-top: 50px;
+  min-width: 600px;
+  max-width: 600px;
+  left: 50%;
+  transform: translate(-50%);
+}
