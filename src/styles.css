@@ -1,3 +1,32 @@
+@font-face {
+  font-family: "DIN Pro Bold";
+  src: local('DINPro-Bold13934.ttf'),
+  url("fonts/DINPro-Bold_13934.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DIN Light";
+  src: local('DIN-Light.ttf'),
+  url("fonts/DIN-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DIN Regular";
+  src: local('D-DIN.ttf'),
+  url("fonts/D-DIN.ttf") format("truetype");
+}
+
+body {
+  font-family: "DIN Regular", Serif;
+}
+
+h1, h2, h3 {
+  font-family: "DIN Light", Serif;
+}
+
+button {
+  font-family: "DIN Regular", Serif;
+}
 
 ::selection {
   background-color: #8bd201;

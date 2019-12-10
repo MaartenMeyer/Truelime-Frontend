@@ -2,7 +2,7 @@
 <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark rgba-black-strong" [containerInside]="false">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" routerLink="/dashboard"><img src="../../../assets/images/truelimelogo2.png" alt="TrueLime" /></a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" routerLink="/dashboard"><img class="animated fadeIn" src="../../../assets/images/truelimelogo2.png" alt="TrueLime" /></a></mdb-navbar-brand>
 
   <!-- Collapsible content -->
   <links>
@@ -12,10 +12,10 @@
         <a class="nav-link waves-light" mdbWavesEffect routerLink="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/myboards">My Boards</a>
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/boards/myboards">My Boards</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/newboard">New Board</a>
+        <a class="nav-link waves-light" mdbWavesEffect routerLink="/boards/newboard">New Board</a>
       </li>
     </ul>
     <!-- Links -->
@@ -27,7 +27,7 @@
             <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
             <div class="dropdown-menu dropdown-menu-right dropdown-primary">
               <a class="dropdown-item" routerLink="/settings">Settings</a>
-              <a class="dropdown-item">Log Out</a>
+              <a class="dropdown-item" routerLink="/login">Log Out</a>
             </div>
           </div>
         </a>

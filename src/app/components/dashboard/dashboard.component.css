@@ -1,9 +1,29 @@
+.imgDiv {
+  background-image: url("background.png");
+  overflow: hidden;
+  height: 100vh;
+  width:100%;
+  text-align:center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+#color-overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
 div {
   text-align: center;
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
   font-size: 60px;
   margin-top: 20px;
 }
@@ -14,11 +34,15 @@ h1 {
 }
 
 .dashBtn {
-  background-color: #8bd201;
-  color: #ffffff;
+  /*background-color: #8bd201;*/
+  /*color: #ffffff;*/
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  padding: 14px 28px;
   font-size: 20px;
+  cursor: pointer;
   margin-left: 10px;
-  border-radius: 10px;
 }
 
 mdb-card {
@@ -26,5 +50,6 @@ mdb-card {
   min-width: 600px;
   max-width: 600px;
   left: 50%;
-  transform: translate(-50%);
+  top: -15%;
+  transform: translate(-50%, 15%);
 }
