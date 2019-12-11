@@ -9,23 +9,24 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnInit {
-
-  id: string;
   board: Board;
 
-  constructor(private boardService: BoardService, private router: Router, private route: ActivatedRoute) {
-    this.id = this.route.snapshot.params.id;
+  constructor(
+    private boardService: BoardService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
+
   }
 
   ngOnInit() {
-    this.route.params.subscribe(paramsId => {
-      this.id = paramsId.id;
+    this.route.data.subscribe(data => {
+      if(data.board.error) {
 
-      this.boardService.getBoardById(this.id).subscribe(
-        (board) => {
-          this.board = board;
-        });
-    });
+      } else {
+        this.board = data.board;
+      }
+    })
   }
 
 }

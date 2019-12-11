@@ -24,17 +24,17 @@ export class BoardService {
 
   // Get board by id
   getBoardById(id: string) {
-    return this.http.get<Board>(`${environment.baseUrl}/board/${id}`);
+    return this.http.get<Board>(`${environment.baseUrl}/boards/${id}`);
   }
 
   // Update board by id
   updateBoard(id: string, board: Board) {
-    return this.http.put<Board>(`${environment.baseUrl}/board/${id}`, board);
+    return this.http.put<Board>(`${environment.baseUrl}/boards/${id}`, board);
   }
 
   // Delete board by id
   deleteBoard(id: string) {
-    return this.http.delete(`${environment.baseUrl}/board/${id}`);
+    return this.http.delete(`${environment.baseUrl}/boards/${id}`);
   }
 
   /** Lane Requests **/
