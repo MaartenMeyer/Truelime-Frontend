@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {BoardsModule} from './components/boards/boards.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {BoardsModule} from './components/boards/boards.module';
     DragDropModule,
     BrowserModule,
     BoardsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

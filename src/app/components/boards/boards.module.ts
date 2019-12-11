@@ -6,6 +6,8 @@ import { BoardsRoutingModule } from './boards-routing.module';
 import {NewBoardComponent} from './new-board/new-board.component';
 import {MyBoardsComponent} from './my-boards/my-boards.component';
 import {BoardsComponent} from './boards.component';
+import { BoardComponent } from './board/board.component';
+import {BoardService} from '../../services/board.service';
 
 
 @NgModule({
@@ -13,6 +15,7 @@ import {BoardsComponent} from './boards.component';
     NewBoardComponent,
     MyBoardsComponent,
     BoardsComponent,
+    BoardComponent,
   ],
   imports: [
     DragDropModule,
