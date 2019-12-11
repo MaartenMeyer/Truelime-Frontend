@@ -1,3 +1,62 @@
 <div class="container">
-  <h2>Create new board</h2>
+  <mdb-card>
+    <mdb-card-header>
+      <h2>Create new board</h2>
+    </mdb-card-header>
+
+    <!-- Horizontal Steppers -->
+    <div class="row">
+      <div class="col-md-12">
+
+        <!-- Stepers Wrapper -->
+        <ul class="stepper stepper-horizontal">
+
+          <!-- First Step -->
+          <li class="completed">
+            <a>
+              <span class="circle">1</span>
+              <span class="label">Board name and description</span>
+              <div class="md-form">
+                <input mdbInput type="text" id="title" class="form-control">
+                <label for="title" class="">Title</label>
+              </div>
+              <div class="md-form">
+                <textarea mdbInput id="description" class="md-textarea form-control"></textarea>
+                <label for="description" class="">Description</label>
+              </div>
+            </a>
+          </li>
+
+          <!-- Second Step -->
+          <li class="active">
+            <a>
+              <span class="circle">2</span>
+              <span class="label">Participants</span>
+              <div class="md-form">
+                <select mdbDropdown id="participants" class="form-control">
+                   <option>Participants</option>
+                </select>
+              </div>
+            </a>
+          </li>
+
+          <!-- Third Step -->
+          <li class="active">
+            <a>
+              <span class="circle">3</span>
+              <span class="label">Submit</span>
+                <div>
+                  <button mdbBtn class="submitBtn animated pulse" type="button" mdbWavesEffect>Create</button>
+                </div>
+            </a>
+          </li>
+
+        </ul>
+        <!-- /.Stepers Wrapper -->
+
+      </div>
+    </div>
+    <!-- /.Horizontal Steppers -->
+  </mdb-card>
+
 </div>

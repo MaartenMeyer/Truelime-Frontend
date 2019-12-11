@@ -1,6 +1,19 @@
 <div class="boardDiv" *ngIf="board">
-  <h1>{{board.title}}</h1>
+  <div class="toolBar">
+    <mdb-card>
+      <mdb-card-header>
+        <h3>{{board.title}}</h3>
+        <h6>{{board.description}} | {{board.owner}}</h6>
+        <button class="laneBtn" mdbBtn><mdb-icon fas icon="plus"></mdb-icon></button>
+      </mdb-card-header>
 
-
-
+      <mdb-card-body>
+        <div class="board" id="lane1">{{board.lanes}}
+          <mdb-card cdkDrag id="card">
+              I'm a card!
+          </mdb-card>
+        </div>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
 </div>

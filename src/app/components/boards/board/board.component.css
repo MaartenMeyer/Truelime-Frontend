@@ -1,0 +1,27 @@
+
+.toolBar {
+  margin: 10px 5px 10px 5px;
+}
+
+.laneBtn {
+  top: 2%;
+  right: 2%;
+  position: absolute;
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.board {
+  border: 2px solid #8bd201;
+  display: block;
+  height: 500px;
+}
+
+#card {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+}

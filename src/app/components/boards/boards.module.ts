@@ -7,7 +7,8 @@ import {NewBoardComponent} from './new-board/new-board.component';
 import {MyBoardsComponent} from './my-boards/my-boards.component';
 import {BoardsComponent} from './boards.component';
 import { BoardComponent } from './board/board.component';
-import {BoardService} from '../../services/board.service';
+import {ButtonsModule, MDBBootstrapModule} from 'angular-bootstrap-md';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,10 @@ import {BoardService} from '../../services/board.service';
   imports: [
     DragDropModule,
     CommonModule,
-    BoardsRoutingModule
+    BoardsRoutingModule,
+    ButtonsModule,
+    MDBBootstrapModule,
+    FormsModule
   ]
 })
 export class BoardsModule { }
