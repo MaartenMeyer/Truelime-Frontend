@@ -7,6 +7,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Board} from '../../../models/board';
 import {User} from '../../../models/user';
 import {Lane} from '../../../models/lane';
+import {FormsModule} from '@angular/forms';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -14,7 +15,7 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, HttpClientTestingModule],
+      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule],
       declarations: [ BoardComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })

@@ -44,7 +44,7 @@ export class BoardComponent implements OnInit {
       return console.error(err.toString());
     });
 
-    connection.on("BroadcastMessage", () => {
+    connection.on('BroadcastMessage', () => {
       this.loadBoard();
     });
   }
@@ -54,7 +54,7 @@ export class BoardComponent implements OnInit {
       .pipe(first())
       .subscribe(board => {
         this.board = board;
-      })
+      });
   }
 
 }

@@ -1,9 +1,10 @@
 .imgDiv {
   background-image: url("../../../../assets/images/backgroundOverlay.png");
   overflow: hidden;
+  min-height: 100vh;
   height: auto;
   width: 100%;
-  text-align:center;
+  text-align: center;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
