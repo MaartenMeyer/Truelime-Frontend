@@ -2,3 +2,33 @@ div {
   margin-top: 20px;
   text-align: center;
 }
+
+hr {
+  background-color: black;
+}
+
+.myBoardsTitle {
+  font-weight: bold;
+}
+
+.myBoardsRemove {
+  right: 2%;
+  position: absolute;
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.myBoardsUpdate {
+  right: 10%;
+  position: absolute;
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+
