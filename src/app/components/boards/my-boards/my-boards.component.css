@@ -1,18 +1,50 @@
-div {
-  margin-top: 20px;
-  text-align: center;
+.imgDiv {
+  background-image: url("../../../../assets/images/background.png");
+  overflow: hidden;
+  height: 100vh;
+  width:100%;
+  text-align:center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-hr {
-  background-color: black;
+#color-overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  opacity: 0.8;
 }
 
-.myBoardsRemove {
+.myBoardsCard {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 0 0 0;
+}
+
+h2 {
+  color: #8bd201;
+  cursor: pointer;
+}
+
+.boardTitle {
+  outline: none;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.boardRemove {
+  top: 40%;
   right: 2%;
   position: absolute;
-  color: #8bd201;
-  border: 2px solid #8bd201;
+  color: #ED5603;
+  border: 2px solid #ED5603;
   cursor: pointer;
   margin: 0;
-  padding: 10px 25px;
+  padding: 2px 2px 0 2px;
+  float: right;
+  background-color: #ffffff;
+  font-size: 10px;
 }

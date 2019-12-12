@@ -8,7 +8,7 @@ import {MyBoardsComponent} from './my-boards/my-boards.component';
 import {BoardsComponent} from './boards.component';
 import { BoardComponent } from './board/board.component';
 import {ButtonsModule, MDBBootstrapModule} from 'angular-bootstrap-md';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -18,13 +18,14 @@ import {FormsModule} from '@angular/forms';
     BoardsComponent,
     BoardComponent,
   ],
-  imports: [
-    DragDropModule,
-    CommonModule,
-    BoardsRoutingModule,
-    ButtonsModule,
-    MDBBootstrapModule,
-    FormsModule
-  ]
+    imports: [
+        DragDropModule,
+        CommonModule,
+        BoardsRoutingModule,
+        ButtonsModule,
+        MDBBootstrapModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class BoardsModule { }

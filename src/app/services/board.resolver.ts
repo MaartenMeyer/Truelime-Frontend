@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -14,16 +14,16 @@ export class BoardResolver implements Resolve<Observable<any>> {
     const id = route.paramMap.get('id');
     return this.boardService.getBoardById(id).pipe(
       map(response => {
-        if(response) {
-          return response
+        if (response) {
+          return response;
         }
-        this.router.navigate(['boards/myboards/'])
-        return null
+        this.router.navigate(['boards/myboards/']);
+        return null;
       }),
       catchError(error => {
-        this.router.navigate(['boards/myboards/'])
-        return of(null)
+        this.router.navigate(['boards/myboards/']);
+        return of(null);
       })
-    )
+    );
   }
 }

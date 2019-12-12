@@ -21,12 +21,12 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      if(data.board.error) {
+      if (data.board.error) {
 
       } else {
         this.board = data.board;
       }
-    })
+    });
   }
 
 }
