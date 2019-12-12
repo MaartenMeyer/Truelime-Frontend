@@ -1,30 +1,40 @@
-<div class="boardDiv" *ngIf="board">
-  <div class="toolBar">
-    <mdb-card>
-      <mdb-card-header>
-        <h3>{{board?.title}}</h3>
-        <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
-        <button class="laneBtn" mdbBtn><mdb-icon fas icon="plus"></mdb-icon></button>
-      </mdb-card-header>
+<div class="imgDiv">
+  <div class="boardDiv" *ngIf="board">
+    <div class="toolBar">
+      <mdb-card>
+        <mdb-card-header>
+          <h3>{{board?.title}}</h3>
+          <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
+          <button class="laneBtn" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
+        </mdb-card-header>
 
-      <mdb-card-body>
-        <div class="board row justify-content-center">
-          <div class="lane col" *ngFor="let lane of board?.lanes">
-            {{lane.title}}
-            <button class="addCard" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
-            <hr>
-            <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
-              <mdb-card-header>
-                {{card.title}}
-                <button class="cardSettings" mdbBtn mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon></button>
-              </mdb-card-header>
-              <mdb-card-body>
-                {{card.message}}
-              </mdb-card-body>
-            </mdb-card>
+        <mdb-card-body>
+          <div class="board row justify-content-center">
+            <div class="lane col" *ngFor="let lane of board?.lanes">
+              <div class="md-form">
+              <input
+                mdbInput
+                type="text"
+                id="title"
+                class="form-control titleInput"
+              [(ngModel)]="lane.title"
+              >
+              <label for="title" class=""></label>
+                <button class="addCard" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
+              </div>
+              <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
+                <mdb-card-header>
+                  {{card.title}}
+                  <button class="cardSettings" mdbBtn mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon></button>
+                </mdb-card-header>
+                <mdb-card-body>
+                  {{card.message}}
+                </mdb-card-body>
+              </mdb-card>
+            </div>
           </div>
-        </div>
-      </mdb-card-body>
-    </mdb-card>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
   </div>
 </div>
