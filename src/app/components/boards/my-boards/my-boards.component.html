@@ -1,8 +1,6 @@
-<div class="myBoardsDiv" *ngFor="let board of boards">
-  <h1 class="myBoardsTitle">{{board.title}}
-    <button class="myBoardsUpdate" mdbBtn><mdb-icon fas icon="edit"></mdb-icon></button>
+<div class="myBoardsDiv" *ngFor="let board of boards" routerLink='/dashboard'>
+  <h1 class="myBoardsTitle font-weight-bold">{{board.title}}
     <button class="myBoardsRemove" mdbBtn><mdb-icon fas icon="trash-alt"></mdb-icon></button>
   </h1>
-  <p>{{board.owner}}</p>
   <hr>
 </div>
