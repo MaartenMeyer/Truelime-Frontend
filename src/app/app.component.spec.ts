@@ -4,11 +4,13 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {BoardService} from './services/board.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule, ReactiveFormsModule ],
+      providers: [BoardService],
       declarations: [
         AppComponent
       ],

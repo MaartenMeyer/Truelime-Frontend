@@ -2,14 +2,14 @@
   <div class="toolBar">
     <mdb-card>
       <mdb-card-header>
-        <h3>{{board.title}}</h3>
-        <h6>{{board.description}} | {{board.owner}} | {{board.participants}}</h6>
+        <h3>{{board?.title}}</h3>
+        <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
         <button class="laneBtn" mdbBtn><mdb-icon fas icon="plus"></mdb-icon></button>
       </mdb-card-header>
 
       <mdb-card-body>
         <div class="board row justify-content-center">
-          <div class="lane col" *ngFor="let lane of board.lanes">
+          <div class="lane col" *ngFor="let lane of board?.lanes">
             {{lane.title}}
             <button class="addCard" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
             <hr>

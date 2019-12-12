@@ -38,9 +38,6 @@ export class MyBoardsComponent implements OnInit {
         .subscribe(
           response => {
             this.getMyBoards();
-          },
-          error => {
-            window.scrollTo(0, 0);
           }
         );
     }
