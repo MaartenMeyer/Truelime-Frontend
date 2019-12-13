@@ -23,7 +23,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         CommonModule,
         BoardsRoutingModule,
         ButtonsModule,
-        MDBBootstrapModule,
+        MDBBootstrapModule.forRoot(),
         FormsModule,
         ReactiveFormsModule
     ]
