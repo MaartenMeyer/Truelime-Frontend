@@ -2,10 +2,13 @@
   <div class="boardDiv" *ngIf="board">
     <div class="toolBar">
       <mdb-card>
-        <mdb-card-header>
+        <mdb-card-header class="titleHeader">
           <h3>{{board?.title}}</h3>
           <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
-          <button class="laneBtn" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
+          <div class="btn-group" role="group">
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="minus"></mdb-icon></button>
+          </div>
         </mdb-card-header>
 
         <mdb-card-body>
@@ -25,7 +28,15 @@
               <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
                 <mdb-card-header>
                   {{card.title}}
-                  <button class="cardSettings" mdbBtn mdbWavesEffect><mdb-icon fas icon="cog"></mdb-icon></button>
+                  <div class="btn-group btnCard" mdbDropdown>
+                    <button class="cardSettings" mdbDropdownToggle mdbBtn mdbWavesEffect>
+                      <mdb-icon fas icon="cog"></mdb-icon>
+                    </button>
+                    <div class="dropdown-menu dropdown-primary">
+                      <a class="dropdown-item">Bewerk kaart</a>
+                      <a class="dropdown-item">Verwijder kaart</a>
+                    </div>
+                  </div>
                 </mdb-card-header>
                 <mdb-card-body>
                   {{card.message}}

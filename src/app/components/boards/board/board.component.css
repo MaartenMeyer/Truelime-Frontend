@@ -1,4 +1,8 @@
 
+.titleHeader {
+  text-align: left;
+}
+
 .imgDiv {
   background-image: url("../../../../assets/images/backgroundOverlay.png");
   overflow: hidden;
@@ -14,10 +18,12 @@
   margin: 10px 5px 10px 5px;
 }
 
+.btn-group {
+  float: right;
+  margin-top: -55px;
+}
+
 .laneBtn {
-  top: 2%;
-  right: 2%;
-  position: absolute;
   background-color: #ffffff;
   color: #8bd201;
   border: 2px solid #8bd201;
@@ -53,6 +59,14 @@
   color: #8bd201;
   font-size: 10px;
   cursor: pointer;
+}
+
+.btnCard {
+  margin-top: 0;
+}
+
+.dropdown-menu {
+  z-index: 1;
 }
 
 .addCard {
