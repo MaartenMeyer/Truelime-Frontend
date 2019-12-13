@@ -4,12 +4,10 @@ import { BoardComponent } from './board.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {Board} from '../../../models/board';
-import {User} from '../../../models/user';
-import {Lane} from '../../../models/lane';
 import {FormsModule} from '@angular/forms';
 import {MDBBootstrapModule, MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
 import {ComponentLoaderFactory} from 'angular-bootstrap-md/lib/free/utils/component-loader/component-loader.factory';
+import { SignalRService } from 'src/app/services/signalr.service';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -20,7 +18,7 @@ describe('BoardComponent', () => {
       imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule, MDBBootstrapModule.forRoot()],
       declarations: [ BoardComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [MDBModalService ]
+      providers: [MDBModalService, SignalRService ]
     })
     .compileComponents();
   }));

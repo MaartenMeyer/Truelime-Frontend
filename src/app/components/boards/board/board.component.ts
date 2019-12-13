@@ -2,9 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, NgZone }
 import {Board} from '../../../models/board';
 import {BoardService} from '../../../services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import * as signalR from '@aspnet/signalr';
 import { first } from 'rxjs/operators';
-import { environment } from '../../../../environments/environment';
 import {CardModalComponent} from '../card-modal/card-modal.component';
 import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
 import { SignalRService } from 'src/app/services/signalr.service';
