@@ -71,4 +71,17 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  deleteCard(laneId: string, cardId: string){
+    console.log("DELETE CARD")
+    const boardid = this.id;
+    const laneid = laneId;
+    const cardid = cardId;
+
+    this.boardService.deleteCard(boardid, laneid, cardid)
+      .pipe(first())
+      .subscribe(data => {
+        console.log(data)
+      })
+  }
+
 }
