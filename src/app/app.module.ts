@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {BoardsModule} from './components/boards/boards.module';
 import {HttpClientModule} from '@angular/common/http';
+import { CardModalComponent } from './components/boards/card-modal/card-modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent
+    SettingsComponent,
+    CardModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -28,8 +31,10 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     BoardsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
+  entryComponents: [CardModalComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]

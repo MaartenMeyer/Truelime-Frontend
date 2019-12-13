@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import * as signalR from '@aspnet/signalr';
 import { first } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
+import {CardModalComponent} from '../card-modal/card-modal.component';
+import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-board',
@@ -12,11 +14,13 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnInit {
+  mdbModalRef: MDBModalRef;
   board: Board;
   id: string;
 
   constructor(
     private boardService: BoardService,
+    private mdbModalService: MDBModalService,
     private router: Router,
     private route: ActivatedRoute
     ) {
@@ -55,6 +59,10 @@ export class BoardComponent implements OnInit {
       .subscribe(board => {
         this.board = board;
       });
+  }
+
+  openCardModal(){
+    this.mdbModalRef = this.mdbModalService.show(CardModalComponent)
   }
 
 }
