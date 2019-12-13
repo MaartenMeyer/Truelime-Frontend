@@ -6,6 +6,7 @@ import {NewBoardComponent} from './new-board/new-board.component';
 import {BoardsComponent} from './boards.component';
 import {BoardComponent} from './board/board.component';
 import { BoardResolver } from 'src/app/services/board.resolver';
+import {AuthGuard} from '../../guards/auth.guard';
 
 
 const routes: Routes = [

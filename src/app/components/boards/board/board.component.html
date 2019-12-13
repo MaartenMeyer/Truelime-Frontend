@@ -5,12 +5,12 @@
         <mdb-card-header class="titleHeader">
           <h3>{{board?.title}}</h3>
           <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
+          <button mdbBtn mdbWavesEffect type="button" class="clearCards"><mdb-icon fas icon="recycle" (click)="clearBoard(board._id, board)"></mdb-icon></button>
           <div class="btn-group" role="group">
-            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>
             <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="minus"></mdb-icon></button>
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>
           </div>
         </mdb-card-header>
-
         <mdb-card-body>
           <div class="board row justify-content-center">
             <div class="lane col" *ngFor="let lane of board?.lanes">
@@ -36,7 +36,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-primary">
                       <a class="dropdown-item">Bewerk kaart</a>
-                      <a class="dropdown-item">Verwijder kaart</a>
+                      <a class="dropdown-item" (click)="deleteCard(lane.id, card.id)">Verwijder kaart</a>
                     </div>
                   </div>
                 </mdb-card-header>

@@ -27,7 +27,7 @@
             <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
             <div class="dropdown-menu dropdown-menu-right dropdown-primary">
               <a class="dropdown-item" routerLink="/settings">Instellingen</a>
-              <a class="dropdown-item" routerLink="/login">Uitloggen</a>
+              <a class="dropdown-item" (click)="logout()">Uitloggen</a>
             </div>
           </div>
         </a>

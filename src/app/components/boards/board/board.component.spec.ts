@@ -25,14 +25,14 @@ describe('BoardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BoardComponent);
     component = fixture.componentInstance;
-    const board = new Board('1', new User('test@test.nl', 'Jan', 'test123'), 'Test', 'Test', ['Harry'], Lane['']);
-    component.board = board;
+    // const board = new Board('1', new User('test@test.nl', 'Jan', 'test123'), 'Test', 'Test', ['Harry'], Lane['']);
+    // component.board = board;
     fixture.detectChanges();
   });
 
   afterEach(() => {
     TestBed.resetTestingModule();
-  })
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

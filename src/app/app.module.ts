@@ -14,6 +14,11 @@ import {BoardsModule} from './components/boards/boards.module';
 import {HttpClientModule} from '@angular/common/http';
 import { CardModalComponent } from './components/boards/card-modal/card-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
+import {ErrorInterceptor} from './helpers/error.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   entryComponents: [CardModalComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

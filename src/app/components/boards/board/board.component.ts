@@ -17,15 +17,14 @@ export class BoardComponent implements OnInit {
   mdbModalRef: MDBModalRef;
   board: Board;
   id: string;
+  private boards: object;
 
   constructor(
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
     private router: Router,
     private route: ActivatedRoute
-    ) {
-
-  }
+    ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -42,9 +41,9 @@ export class BoardComponent implements OnInit {
       .withUrl(`${environment.baseUrl}/notify`)
       .build();
 
-    connection.start().then(function () {
+    connection.start().then(function() {
       console.log('SignalR connected.');
-    }).catch(function (err) {
+    }).catch(function(err) {
       return console.error(err.toString());
     });
 
@@ -65,4 +64,28 @@ export class BoardComponent implements OnInit {
     this.mdbModalRef = this.mdbModalService.show(CardModalComponent)
   }
 
+  clearBoard(id: string, board: Board) {
+    if (confirm(`Weet u zeker dat u alle kaarten van ${board.title} wilt verwijderen?`)) {
+      this.boardService.deleteAllCards(id)
+        .pipe(first())
+        .subscribe(
+          data => {
+            return;
+          }
+        );
+    }
+  }
+
+  deleteCard(laneId: string, cardId: string) {
+    console.log('DELETE CARD');
+    const boardid = this.id;
+    const laneid = laneId;
+    const cardid = cardId;
+
+    this.boardService.deleteCard(boardid, laneid, cardid)
+      .pipe(first())
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 }
