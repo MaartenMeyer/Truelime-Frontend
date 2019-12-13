@@ -34,7 +34,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-primary">
                       <a class="dropdown-item">Bewerk kaart</a>
-                      <a class="dropdown-item">Verwijder kaart</a>
+                      <a class="dropdown-item" (click)="deleteCard(lane.id, card.id)">Verwijder kaart</a>
                     </div>
                   </div>
                 </mdb-card-header>
