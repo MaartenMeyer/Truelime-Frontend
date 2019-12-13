@@ -2,10 +2,10 @@
   <button type="button" class="close pull-right" aria-label="Close" (click)="mdbModalRef.hide()">
     <span aria-hidden="true">×</span>
   </button>
-  <h4 class="modal-title w-100" id="myModalLabel">Card</h4>
+  <h4 class="modal-title w-100" id="myModalLabel">Kaart toevoegen</h4>
 </div>
 <div class="modal-body">
-  <form (ngSubmit)="submitCard(board._id, lane._id)" [formGroup]="cardForm">
+  <form (ngSubmit)="submitCard(content.boardId, content.laneId)" [formGroup]="cardForm">
     <div class="md-form">
       <input
         mdbInput
@@ -40,6 +40,8 @@
 <!--        <div *ngIf="form.message?.errors.required">Bericht is verplicht!</div>-->
       </div>
     </div>
-    <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>Aanmaken</button>
+    <div class="btnDiv">
+      <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>Aanmaken</button>
+    </div>
   </form>
 </div>
