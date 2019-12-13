@@ -38,8 +38,9 @@
             <div *ngIf="f.password.errors.required">Wachtwoord is verplicht!</div>
           </div>
         </div>
-        <button mdbBtn class="loginBtn" type="button" mdbWavesEffect routerLink="/dashboard">Login</button>
+        <button mdbBtn class="loginBtn" type="submit" mdbWavesEffect>Login</button>
       </mdb-card-body>
+      <mdb-card-footer><p>Geen account? <a routerLink="/register">Registreer</a></p></mdb-card-footer>
     </mdb-card>
   </form>
 </div>

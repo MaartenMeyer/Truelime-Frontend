@@ -1,5 +1,5 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark rgba-black-strong" [containerInside]="false">
+<mdb-navbar *ngIf="(isLoggedIn$ | async)" SideClass="navbar navbar-expand-lg navbar-dark rgba-black-strong" [containerInside]="false">
 
   <!-- Navbar brand -->
   <mdb-navbar-brand><a class="navbar-brand" routerLink="/dashboard"><img class="animated fadeIn" src="../../../assets/images/truelimelogo2.png" alt="TrueLime" /></a></mdb-navbar-brand>

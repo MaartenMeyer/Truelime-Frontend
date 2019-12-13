@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -10,6 +11,7 @@ import {AuthService} from '../../services/auth.service';
 })
 export class NavigationComponent implements OnInit {
   currentUser: User;
+  isLoggedIn$: Observable<boolean>;
 
   constructor(
     private router: Router,
@@ -19,6 +21,7 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedInNavigation;
   }
 
   logout() {

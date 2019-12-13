@@ -5,7 +5,7 @@
         <mdb-card-header class="titleHeader">
           <h3>{{board?.title}}</h3>
           <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
-          <button mdbBtn mdbWavesEffect type="button" class="clearCards"><mdb-icon fas icon="recycle" (click)="clearBoard(board._id, board)"></mdb-icon></button>
+          <button mdbBtn mdbWavesEffect type="button" class="clearCards" (click)="clearBoard(board.id, board)"><mdb-icon fas icon="recycle"></mdb-icon></button>
           <div class="btn-group" role="group">
             <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="minus"></mdb-icon></button>
             <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>

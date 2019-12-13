@@ -1,7 +1,7 @@
 .imgDiv {
   background-image: url("../../../assets/images/backgroundOverlay.png");
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   width:100%;
   text-align:center;
   background-position: center;
@@ -12,6 +12,10 @@
 h1 {
   font-size: 60px;
   margin-top: 20px;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 img {
@@ -29,7 +33,6 @@ img {
   color: #ffffff;
   font-size: 15px;
   margin-left: 10px;
-  border-radius: 10px;
 }
 
 mdb-card {
@@ -49,4 +52,12 @@ mdb-card {
 
 .md-form input[type=text]:focus:not([readonly]) + label, .md-form input[type=password]:focus:not([readonly]) + label, .md-form input[type=email]:focus:not([readonly]) + label, .md-form input[type=url]:focus:not([readonly]) + label, .md-form input[type=time]:focus:not([readonly]) + label, .md-form input[type=date]:focus:not([readonly]) + label, .md-form input[type=datetime-local]:focus:not([readonly]) + label, .md-form input[type=tel]:focus:not([readonly]) + label, .md-form input[type=number]:focus:not([readonly]) + label, .md-form input[type=search-md]:focus:not([readonly]) + label, .md-form input[type=search]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label {
   color: #8bd201;
+}
+
+a {
+  color: #8bd201;
+}
+
+a:hover {
+  color: #6FAD02;
 }

@@ -13,6 +13,6 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.http.post(`${environment.baseUrl}/register`, user);
+    return this.http.post(`${environment.baseUrl}/users/register`, user);
   }
 }

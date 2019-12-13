@@ -52,8 +52,9 @@
             <div *ngIf="f.password.errors.minlength">Wachtwoord moet minstens 6 characters lang zijn!</div>
           </div>
         </div>
-        <button mdbBtn class="registerBtn" type="button" mdbWavesEffect routerLink="/dashboard">Registreren</button>
+        <button mdbBtn class="registerBtn" type="submit" mdbWavesEffect routerLink="/dashboard">Registreren</button>
       </mdb-card-body>
+      <mdb-card-footer><p>Terug naar <a routerLink="/login">inloggen.</a></p></mdb-card-footer>
     </mdb-card>
   </form>
 </div>
