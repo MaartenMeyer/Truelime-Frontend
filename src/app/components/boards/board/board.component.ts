@@ -14,6 +14,8 @@ import { environment } from '../../../../environments/environment';
 export class BoardComponent implements OnInit {
   board: Board;
   id: string;
+  private boards: object;
+
 
   constructor(
     private boardService: BoardService,
@@ -38,9 +40,9 @@ export class BoardComponent implements OnInit {
       .withUrl(`${environment.baseUrl}/notify`)
       .build();
 
-    connection.start().then(function () {
+    connection.start().then(function() {
       console.log('SignalR connected.');
-    }).catch(function (err) {
+    }).catch(function(err) {
       return console.error(err.toString());
     });
 
@@ -57,6 +59,18 @@ export class BoardComponent implements OnInit {
       });
   }
 
+  clearBoard(id: string, board: Board) {
+    if (confirm(`Weet u zeker dat u alle kaarten van ${board.title} wilt verwijderen?`)) {
+      this.boardService.deleteAllCards(id)
+        .pipe(first())
+        .subscribe(
+          data => {
+            return;
+          }
+        );
+    }
+  }
+
   deleteCard(laneId: string, cardId: string){
     console.log("DELETE CARD")
     const boardid = this.id;
@@ -69,4 +83,5 @@ export class BoardComponent implements OnInit {
         console.log(data)
       })
   }
+
 }
