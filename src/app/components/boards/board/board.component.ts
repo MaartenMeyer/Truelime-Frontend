@@ -16,14 +16,11 @@ export class BoardComponent implements OnInit {
   id: string;
   private boards: object;
 
-
   constructor(
     private boardService: BoardService,
     private router: Router,
     private route: ActivatedRoute
-    ) {
-
-  }
+    ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -71,8 +68,8 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  deleteCard(laneId: string, cardId: string){
-    console.log("DELETE CARD")
+  deleteCard(laneId: string, cardId: string) {
+    console.log('DELETE CARD');
     const boardid = this.id;
     const laneid = laneId;
     const cardid = cardId;
@@ -80,8 +77,7 @@ export class BoardComponent implements OnInit {
     this.boardService.deleteCard(boardid, laneid, cardid)
       .pipe(first())
       .subscribe(data => {
-        console.log(data)
-      })
+        console.log(data);
+      });
   }
-
 }

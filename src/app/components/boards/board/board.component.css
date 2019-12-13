@@ -6,7 +6,7 @@
 .imgDiv {
   background-image: url("../../../../assets/images/backgroundOverlay.png");
   overflow: hidden;
-  height: auto;
+  height: max-content;
   width: 100%;
   text-align:center;
   background-position: center;
@@ -18,13 +18,22 @@
   margin: 10px 5px 10px 5px;
 }
 
+.clearCards {
+  float: right;
+  margin-right: 185px;
+  background-color: #ffffff;
+  color: #ED5603;
+  border: 2px solid #ED5603;
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: -55px;
+}
+
 .btn-group {
   float: right;
   margin-top: -55px;
 }
-.btn-group .btn {
-  margin: 2px;
-}
+
 .laneBtn {
   background-color: #ffffff;
   color: #8bd201;
@@ -35,6 +44,16 @@
 
 .titleInput {
   margin-top: -25px;
+}
+
+.md-form input[type=text]:focus:not([readonly]), .md-form input[type=password]:focus:not([readonly]), .md-form input[type=email]:focus:not([readonly]), .md-form input[type=url]:focus:not([readonly]), .md-form input[type=time]:focus:not([readonly]), .md-form input[type=date]:focus:not([readonly]), .md-form input[type=datetime-local]:focus:not([readonly]), .md-form input[type=tel]:focus:not([readonly]), .md-form input[type=number]:focus:not([readonly]), .md-form input[type=search-md]:focus:not([readonly]), .md-form input[type=search]:focus:not([readonly]), .md-form textarea.md-textarea:focus:not([readonly]) {
+  box-shadow: 0 1px 0 0 #8bd201;
+  border-bottom: 1px solid #8bd201;
+  color: #8bd201;
+}
+
+.md-form input[type=text]:focus:not([readonly]) + label, .md-form input[type=password]:focus:not([readonly]) + label, .md-form input[type=email]:focus:not([readonly]) + label, .md-form input[type=url]:focus:not([readonly]) + label, .md-form input[type=time]:focus:not([readonly]) + label, .md-form input[type=date]:focus:not([readonly]) + label, .md-form input[type=datetime-local]:focus:not([readonly]) + label, .md-form input[type=tel]:focus:not([readonly]) + label, .md-form input[type=number]:focus:not([readonly]) + label, .md-form input[type=search-md]:focus:not([readonly]) + label, .md-form input[type=search]:focus:not([readonly]) + label, .md-form textarea.md-textarea:focus:not([readonly]) + label {
+  color: #8bd201;
 }
 
 .board {

@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthService } from './auth.service';
+import { UserService } from './user.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BoardService} from './board.service';
 
-describe('AuthService', () => {
+describe('UserService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [ HttpClientTestingModule],
-    providers: [AuthService]
+    imports: [ HttpClientTestingModule ],
+    providers: [UserService]
   }));
 
   it('should be created', () => {
-    const service: AuthService = TestBed.get(AuthService);
+    const service: UserService = TestBed.get(UserService);
     expect(service).toBeTruthy();
   });
 });
