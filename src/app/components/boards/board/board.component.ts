@@ -64,6 +64,13 @@ export class BoardComponent implements OnInit {
     this.mdbModalRef = this.mdbModalService.show(CardModalComponent)
   }
 
+  //IN PROGRESS
+  //Change Title of Lane on detect change
+  //Add (change)="onLaneTitleChange()" to Lane input in board.component.html
+  // onLaneTitleChange(boardId: string, laneId: string, lane: Lane){
+  //   this.boardService.updateLane(boardId, laneId, lane)
+  // }
+
   clearBoard(id: string, board: Board) {
     if (confirm(`Weet u zeker dat u alle kaarten van ${board.title} wilt verwijderen?`)) {
       this.boardService.deleteAllCards(id)

@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Board} from '../models/board';
 import {Card} from '../models/card';
+import {Lane} from '../models/lane';
 
 @Injectable({
   providedIn: 'root'
@@ -44,8 +45,8 @@ export class BoardService {
   }
 
   // Update lane
-  updateLane() {
-
+  updateLane(boardId: string, laneId: string, lane: Lane) {
+    return this.http.put<Lane>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}`, lane)
   }
 
   // Delete lane
