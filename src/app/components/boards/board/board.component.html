@@ -15,15 +15,17 @@
           <div class="board row justify-content-center">
             <div class="lane col" *ngFor="let lane of board?.lanes">
               <div class="md-form">
-              <input
-                mdbInput
-                type="text"
-                id="title"
-                class="form-control titleInput"
-              [(ngModel)]="lane.title"
-              >
-              <label for="title" class=""></label>
-                <button class="addCard" mdbBtn mdbWavesEffect><mdb-icon fas icon="plus"></mdb-icon></button>
+                <input
+                  mdbInput
+                  type="text"
+                  id="title"
+                  class="form-control titleInput"
+                  [(ngModel)]="lane.title"
+                >
+                <label for="title" class=""></label>
+                <button class="addCard" (click)="openCardModal()" mdbBtn mdbWavesEffect>
+                  <mdb-icon fas icon="plus"></mdb-icon>
+                </button>
               </div>
               <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
                 <mdb-card-header>

@@ -11,10 +11,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {BoardsModule} from './components/boards/boards.module';
+import {HttpClientModule} from '@angular/common/http';
+import { CardModalComponent } from './components/boards/card-modal/card-modal.component';
+import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent
+    SettingsComponent,
+    CardModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -34,6 +39,7 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     AppRoutingModule,
     ReactiveFormsModule
   ],
+  entryComponents: [CardModalComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

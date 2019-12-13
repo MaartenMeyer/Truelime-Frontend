@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 import {Board} from '../models/board';
+import {Card} from '../models/card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   /** Board Requests **/
   // Create new board
@@ -55,8 +55,8 @@ export class BoardService {
 
   /** Card Requests **/
   // Create card
-  createCard() {
-
+  createCard(boardId: string, laneId: string, card: Card) {
+    return this.http.post<Card>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}/cards`, card);
   }
 
   // Update card
@@ -73,5 +73,4 @@ export class BoardService {
   deleteAllCards(id: string) {
     return this.http.delete(`${environment.baseUrl}/boards/${id}/cards`);
   }
-
 }
