@@ -7,6 +7,7 @@ import { first } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import {CardModalComponent} from '../card-modal/card-modal.component';
 import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
+import {Lane} from '../../../models/lane';
 
 @Component({
   selector: 'app-board',
@@ -60,8 +61,14 @@ export class BoardComponent implements OnInit {
       });
   }
 
-  openCardModal(){
-    this.mdbModalRef = this.mdbModalService.show(CardModalComponent)
+  openCardModal(boardId: string, laneId: string) {
+    console.log(boardId)
+    const modalOptions = {
+      data: {
+        content: { boardId, laneId}
+      }
+    };
+    this.mdbModalRef = this.mdbModalService.show(CardModalComponent,  modalOptions );
   }
 
   //IN PROGRESS

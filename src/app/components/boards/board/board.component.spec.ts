@@ -8,6 +8,8 @@ import {Board} from '../../../models/board';
 import {User} from '../../../models/user';
 import {Lane} from '../../../models/lane';
 import {FormsModule} from '@angular/forms';
+import {MDBBootstrapModule, MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
+import {ComponentLoaderFactory} from 'angular-bootstrap-md/lib/free/utils/component-loader/component-loader.factory';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -15,9 +17,10 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule],
+      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule, MDBBootstrapModule.forRoot()],
       declarations: [ BoardComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [MDBModalService ]
     })
     .compileComponents();
   }));

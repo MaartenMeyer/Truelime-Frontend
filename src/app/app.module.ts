@@ -34,8 +34,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     BrowserModule,
     BoardsModule,
     HttpClientModule,
-    AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   entryComponents: [CardModalComponent],
   schemas: [ NO_ERRORS_SCHEMA ],

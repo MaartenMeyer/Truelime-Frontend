@@ -23,7 +23,7 @@
                   [(ngModel)]="lane.title"
                 >
                 <label for="title" class=""></label>
-                <button class="addCard" (click)="openCardModal()" mdbBtn mdbWavesEffect>
+                <button class="addCard" (click)="openCardModal(board.id, lane.id)" mdbBtn mdbWavesEffect>
                   <mdb-icon fas icon="plus"></mdb-icon>
                 </button>
               </div>
