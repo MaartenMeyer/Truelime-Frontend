@@ -6,8 +6,8 @@
           <h3>{{board?.title}}</h3>
           <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
           <div class="btn-group" role="group">
-            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="recycle"></mdb-icon></button>
-            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus" (click)="clearBoard(board._id, board)"></mdb-icon></button>
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="recycle" (click)="clearBoard(board._id, board)"></mdb-icon></button>
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>
           </div>
         </mdb-card-header>
 

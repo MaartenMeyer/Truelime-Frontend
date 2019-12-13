@@ -22,7 +22,9 @@
   float: right;
   margin-top: -55px;
 }
-
+.btn-group .btn {
+  margin: 2px;
+}
 .laneBtn {
   background-color: #ffffff;
   color: #8bd201;
