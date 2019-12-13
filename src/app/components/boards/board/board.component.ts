@@ -66,7 +66,7 @@ export class BoardComponent implements OnInit {
     this.boardService.deleteCard(boardid, laneid, cardid)
       .pipe(first())
       .subscribe(data => {
-        return
+        console.log(data)
       })
   }
 }
