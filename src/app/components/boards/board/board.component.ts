@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, NgZone } from '@angular/core';
 import {Board} from '../../../models/board';
 import {BoardService} from '../../../services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -7,25 +7,36 @@ import { first } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 import {CardModalComponent} from '../card-modal/card-modal.component';
 import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
-import {Lane} from '../../../models/lane';
+import { SignalRService } from 'src/app/services/signalr.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoardComponent implements OnInit {
   mdbModalRef: MDBModalRef;
   board: Board;
   id: string;
-  private boards: object;
+  private signalRSubscription: Subscription;
 
   constructor(
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
     private router: Router,
-    private route: ActivatedRoute
-    ) {}
+    private route: ActivatedRoute,
+    private signalrService: SignalRService,
+    private changeDetector: ChangeDetectorRef,
+    private zone: NgZone
+  ) {
+    this.signalRSubscription = this.signalrService.getMessage().subscribe(
+      (message) => {
+        this.loadBoard();
+      }
+    )
+    }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -36,28 +47,22 @@ export class BoardComponent implements OnInit {
         this.id = data.board.id;
       }
     });
+  }
 
-    const connection = new signalR.HubConnectionBuilder()
-      .configureLogging(signalR.LogLevel.Information)
-      .withUrl(`${environment.baseUrl}/notify`)
-      .build();
-
-    connection.start().then(function() {
-      console.log('SignalR connected.');
-    }).catch(function(err) {
-      return console.error(err.toString());
-    });
-
-    connection.on('BroadcastMessage', () => {
-      this.loadBoard();
-    });
+  ngOnDestroy(): void {
+    this.signalrService.disconnect();
+    this.signalRSubscription.unsubscribe();
   }
 
   loadBoard() {
     this.boardService.getBoardById(this.id)
       .pipe(first())
       .subscribe(board => {
-        this.board = board;
+        // Realtime update fix
+        this.zone.run(() => {
+          this.board = board;
+          this.changeDetector.markForCheck();
+        })
       });
   }
 
@@ -91,7 +96,6 @@ export class BoardComponent implements OnInit {
   }
 
   deleteCard(laneId: string, cardId: string) {
-    console.log('DELETE CARD');
     const boardid = this.id;
     const laneid = laneId;
     const cardid = cardId;
@@ -99,7 +103,6 @@ export class BoardComponent implements OnInit {
     this.boardService.deleteCard(boardid, laneid, cardid)
       .pipe(first())
       .subscribe(data => {
-        console.log(data);
       });
   }
 }
