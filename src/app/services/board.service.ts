@@ -65,8 +65,7 @@ export class BoardService {
   }
 
   // Delete card
-  deleteCard() {
-
+  deleteCard(boardid: string, laneid: string, cardid: string) {
+    return this.http.delete(`${environment.baseUrl}/boards/${boardid}/lanes/${laneid}/cards/${cardid}`)
   }
-
 }
