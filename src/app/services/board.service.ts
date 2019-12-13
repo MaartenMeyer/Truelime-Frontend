@@ -69,4 +69,9 @@ export class BoardService {
 
   }
 
+  // Delete all cards
+  deleteAllCards(id: string) {
+    return this.http.delete(`${environment.baseUrl}/boards/${id}/cards`);
+  }
+
 }
