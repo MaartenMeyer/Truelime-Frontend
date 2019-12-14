@@ -21,6 +21,7 @@
           <label for="email" class="">Email</label>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required">Email is verplicht!</div>
+            <div *ngIf="f.email.hasError('pattern')">Voer een geldige email in!</div>
           </div>
         </div>
         <div class="md-form">
@@ -52,7 +53,7 @@
             <div *ngIf="f.password.errors.minlength">Wachtwoord moet minstens 6 characters lang zijn!</div>
           </div>
         </div>
-        <button mdbBtn class="registerBtn" type="submit" mdbWavesEffect routerLink="/dashboard">Registreren</button>
+        <button mdbBtn class="registerBtn" type="submit" mdbWavesEffect>Registreren</button>
       </mdb-card-body>
       <mdb-card-footer><p>Terug naar <a routerLink="/login">inloggen.</a></p></mdb-card-footer>
     </mdb-card>
