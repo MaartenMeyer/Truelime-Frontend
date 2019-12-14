@@ -12,17 +12,22 @@ import {Board} from '../../../models/board';
   providers: [BoardService]
 })
 export class MyBoardsComponent implements OnInit {
-  private boards: object;
+  boards: Board[] = [];
+  loading = false;
 
   constructor(private boardService: BoardService, private router: Router) {}
 
   ngOnInit() {
+    this.loading = true;
     this.getMyBoards();
   }
 
   getMyBoards(): void {
     this.boardService.getBoards()
-      .subscribe(result => (this.boards = result));
+      .subscribe(result => {
+        this.loading = false;
+        this.boards = result;
+      });
   }
 
   deleteBoard(id: string, board: Board) {
@@ -31,6 +36,7 @@ export class MyBoardsComponent implements OnInit {
         .pipe(first())
         .subscribe(
           response => {
+            this.loading = true;
             this.getMyBoards();
           }
         );
