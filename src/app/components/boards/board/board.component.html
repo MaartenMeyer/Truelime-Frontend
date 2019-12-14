@@ -1,0 +1,52 @@
+<div class="imgDiv">
+  <div class="boardDiv" *ngIf="board">
+    <div class="toolBar">
+      <mdb-card>
+        <mdb-card-header class="titleHeader">
+          <h3>{{board?.title}}</h3>
+          <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
+          <button mdbBtn mdbWavesEffect type="button" class="clearCards" (click)="clearBoard(board.id, board)"><mdb-icon fas icon="recycle"></mdb-icon></button>
+          <div class="btn-group" role="group">
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="minus"></mdb-icon></button>
+            <button mdbBtn mdbWavesEffect type="button" class="laneBtn"><mdb-icon fas icon="plus"></mdb-icon></button>
+          </div>
+        </mdb-card-header>
+        <mdb-card-body>
+          <div class="board row justify-content-center">
+            <div class="lane col" *ngFor="let lane of board?.lanes">
+              <div class="md-form">
+                <input
+                  mdbInput
+                  type="text"
+                  class="form-control titleInput"
+                  [(ngModel)]="lane.title"
+                >
+                <label for="title" class=""></label>
+                <button class="addCard" (click)="openCardModal(board.id, lane.id)" mdbBtn mdbWavesEffect>
+                  <mdb-icon fas icon="plus"></mdb-icon>
+                </button>
+              </div>
+              <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
+                <mdb-card-header>
+                  {{card.title}}
+                  <div class="btn-group btnCard" mdbDropdown>
+                    <button class="cardSettings" mdbDropdownToggle mdbBtn mdbWavesEffect>
+                      <mdb-icon fas icon="cog"></mdb-icon>
+                    </button>
+                    <div class="dropdown-menu dropdown-primary">
+                      <a class="dropdown-item">Bewerk kaart</a>
+                      <a class="dropdown-item" (click)="deleteCard(lane.id, card.id)">Verwijder kaart</a>
+                    </div>
+                  </div>
+                </mdb-card-header>
+                <mdb-card-body>
+                  {{card.message}}
+                </mdb-card-body>
+              </mdb-card>
+            </div>
+          </div>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+</div>

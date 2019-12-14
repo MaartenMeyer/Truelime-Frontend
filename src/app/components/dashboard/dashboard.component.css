@@ -1,0 +1,46 @@
+.imgDiv {
+  background-image: url("../../../assets/images/backgroundOverlay.png");
+  overflow: hidden;
+  height: 100vh;
+  width:100%;
+  text-align:center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+div {
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.btnDiv {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.dashBtn {
+  /*background-color: #8bd201;*/
+  /*color: #ffffff;*/
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  padding: 14px 28px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+mdb-card {
+  margin-top: 50px;
+  min-width: 600px;
+  max-width: 600px;
+  left: 50%;
+  top: -15%;
+  transform: translate(-50%, 15%);
+}

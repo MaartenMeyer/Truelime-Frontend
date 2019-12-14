@@ -1,0 +1,48 @@
+<div class="imgDiv">
+  <div class="container">
+    <form (ngSubmit)="submitBoard()" [formGroup]="boardForm">
+      <mdb-card>
+        <mdb-card-header>
+          <h2>Maak een nieuw bord aan</h2>
+        </mdb-card-header>
+        <mdb-card-body>
+          <div class="md-form">
+            <input
+              mdbInput
+              type="text"
+              id="title"
+              class="form-control"
+              formControlName="title"
+              [ngClass]="{
+             'is-invalid': form.title.invalid && ((form.title.dirty || form.title.touched) || submitted)
+            }"
+              required
+            >
+            <label for="title" class="">Titel</label>
+            <div *ngIf="(form.title.invalid && (form.title.touched)) || submitted" class="invalid-feedback">
+              <div *ngIf="form.title.errors?.required">Titel is verplicht!</div>
+            </div>
+          </div>
+          <div class="md-form">
+            <input
+              mdbInput
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              [ngClass]="{
+             'is-invalid': form.description.invalid && ((form.description.dirty || form.description.touched) || submitted)
+            }"
+              required
+            >
+            <label for="description" class="">Beschrijving</label>
+            <div *ngIf="(form.description.invalid && (form.description.touched)) || submitted" class="invalid-feedback">
+              <div *ngIf="form.description.errors?.required">Beschrijving is verplicht!</div>
+            </div>
+          </div>
+          <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>Aanmaken</button>
+        </mdb-card-body>
+      </mdb-card>
+    </form>
+  </div>
+</div>

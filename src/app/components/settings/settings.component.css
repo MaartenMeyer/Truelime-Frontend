@@ -1,0 +1,30 @@
+.imgDiv {
+  background-image: url("../../../assets/images/backgroundOverlay.png");
+  overflow: hidden;
+  height: 100vh;
+  width:100%;
+  text-align:center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+
+div {
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+mdb-card {
+  margin-top: 50px;
+  min-width: 600px;
+  max-width: 600px;
+  left: 50%;
+  top: -15%;
+  transform: translate(-50%, 15%);
+}

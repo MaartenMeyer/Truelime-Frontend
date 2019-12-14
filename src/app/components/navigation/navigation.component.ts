@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../models/user';
+import {Router} from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  currentUser: User;
+  isLoggedIn$: Observable<boolean>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
+  ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedInNavigation;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

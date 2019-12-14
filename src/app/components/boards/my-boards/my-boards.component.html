@@ -1,0 +1,9 @@
+<div class="imgDiv">
+  <div class="container">
+    <mdb-card class="myBoardsCard" *ngFor="let board of boards">
+      <h2 class="boardTitle" [routerLink]="['/boards/board', board.id]">{{board.title}}</h2>
+      <h5 class="boardTitle">{{board.description}}</h5>
+      <button class="boardRemove" mdbBtn mdbWavesEffect (click)="deleteBoard(board.id, board)"><mdb-icon fas icon="trash-alt"></mdb-icon></button>
+    </mdb-card>
+  </div>
+</div>
