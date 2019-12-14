@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 })
 export class BoardComponent implements OnInit {
   mdbModalRef: MDBModalRef;
-  board: Object;
+  board: Board;
   id: string;
   private signalRSubscription: Subscription;
 

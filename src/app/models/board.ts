@@ -3,7 +3,7 @@ import {User} from './user';
 
 export class Board {
   constructor(
-    public _id: string,
+    public id: string,
     public owner: User,
     public title: string,
     public description: string,
