@@ -21,7 +21,6 @@ export class CardModalComponent implements OnInit {
     private formBuilder: FormBuilder,
     private boardService: BoardService,
   ) {
-    console.log(mdbModalRef);
   }
 
   ngOnInit() {
@@ -37,9 +36,6 @@ export class CardModalComponent implements OnInit {
 
   submitCard(boardId: string, laneId: string) {
     this.submitted = true;
-
-    console.log(boardId);
-    console.log(laneId);
 
     if (this.cardForm.invalid) {
       alert('Card value is not correct!');

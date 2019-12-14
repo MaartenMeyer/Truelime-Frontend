@@ -38,6 +38,7 @@
             <div *ngIf="f.password.errors.required">Wachtwoord is verplicht!</div>
           </div>
         </div>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{ error }}</div>
         <button mdbBtn class="loginBtn" type="submit" mdbWavesEffect>Login</button>
       </mdb-card-body>
       <mdb-card-footer><p>Geen account? <a routerLink="/register">Registreer</a></p></mdb-card-footer>

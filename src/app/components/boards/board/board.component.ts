@@ -48,7 +48,6 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.signalrService.disconnect();
     this.signalRSubscription.unsubscribe();
   }
 
@@ -65,7 +64,6 @@ export class BoardComponent implements OnInit {
   }
 
   openCardModal(boardId: string, laneId: string) {
-    console.log(boardId)
     const modalOptions = {
       data: {
         content: { boardId, laneId}

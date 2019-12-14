@@ -20,12 +20,6 @@ export class MyBoardsComponent implements OnInit {
     this.getMyBoards();
   }
 
-  private reloadCurrentRoute() {
-    const currentUrl = this.router.routerState.snapshot.url;
-    console.log(currentUrl);
-    this.router.navigate([currentUrl]);
-  }
-
   getMyBoards(): void {
     this.boardService.getBoards()
       .subscribe(result => (this.boards = result));
