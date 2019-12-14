@@ -83,11 +83,8 @@ export class BoardComponent implements OnInit {
     if (confirm(`Weet u zeker dat u alle kaarten van ${board.title} wilt verwijderen?`)) {
       this.boardService.deleteAllCards(id)
         .pipe(first())
-        .subscribe(
-          data => {
-            return;
-          }
-        );
+        .subscribe(data => {
+        });
     }
   }
 

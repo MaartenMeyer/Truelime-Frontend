@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/' }
+  { path: '**', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
