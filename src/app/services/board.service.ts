@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {Board} from '../models/board';
-import {Card} from '../models/card';
-import {Lane} from '../models/lane';
+import {environment} from '@environments/environment';
+import {Board} from '@app/models/board';
+import {Card} from '@app/models/card';
+import {Lane} from '@app/models/lane';
 
 @Injectable({
   providedIn: 'root'
