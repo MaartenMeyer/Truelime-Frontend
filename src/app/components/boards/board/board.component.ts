@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 })
 export class BoardComponent implements OnInit {
   mdbModalRef: MDBModalRef;
-  board: Board;
+  board: Object;
   id: string;
   private signalRSubscription: Subscription;
 
@@ -43,6 +43,7 @@ export class BoardComponent implements OnInit {
       } else {
         this.board = data.board;
         this.id = data.board.id;
+        console.log(this.board)
       }
     });
   }
