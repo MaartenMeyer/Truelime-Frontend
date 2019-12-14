@@ -22,13 +22,11 @@
 
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">
-        <a class="nav-link">
-          <div class="btn-group" mdbDropdown>
-            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
-            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-              <a class="dropdown-item" routerLink="/settings">Instellingen</a>
-              <a class="dropdown-item" (click)="logout()">Uitloggen</a>
-            </div>
+        <a class="nav-link btn-group"  mdbDropdown mdbDropdownToggle>
+          <mdb-icon fas icon="user"></mdb-icon>
+          <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+            <a class="dropdown-item" routerLink="/settings">Instellingen</a>
+            <a class="dropdown-item" (click)="logout()">Uitloggen</a>
           </div>
         </a>
       </li>
