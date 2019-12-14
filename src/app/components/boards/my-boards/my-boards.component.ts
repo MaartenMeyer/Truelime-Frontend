@@ -12,7 +12,7 @@ import {Board} from '../../../models/board';
   providers: [BoardService]
 })
 export class MyBoardsComponent implements OnInit {
-  boards: Object[] = [];
+  boards: Board[] = [];
   loading = false;
 
   constructor(private boardService: BoardService, private router: Router) {}
