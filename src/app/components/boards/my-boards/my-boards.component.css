@@ -1,5 +1,5 @@
 .imgDiv {
-  background-image: url("../../../../assets/images/backgroundOverlay.png");
+  background-image: url('../../../../assets/images/backgroundOverlay.png');
   overflow: hidden;
   min-height: 100vh;
   height: auto;
@@ -23,19 +23,27 @@
   margin-right: 0px;
 }
 
+.col-4 {
+  padding-left: 0px;
+  padding-right: 0px;
+  align-content: flex-end;
+  justify-content: end;
+  text-align: right;
+}
+
 h2 {
   color: #8bd201;
   cursor: pointer;
 }
 
 .boardTitle {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .boardRemove {
-  color: #ED5603;
-  border: 2px solid #ED5603;
+  color: #ed5603;
+  border: 2px solid #ed5603;
   cursor: pointer;
   background-color: #ffffff;
   font-size: 10px;

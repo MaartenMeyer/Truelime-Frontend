@@ -1,15 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {BoardService} from '../../../services/board.service';
-import {first} from 'rxjs/operators';
-import {Router} from '@angular/router';
-import {error} from 'util';
-import {Board} from '../../../models/board';
+import { Component, OnInit } from '@angular/core';
+import { BoardService } from '../../../services/board.service';
+import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Board } from '../../../models/board';
 
 @Component({
   selector: 'app-my-boards',
   templateUrl: './my-boards.component.html',
   styleUrls: ['./my-boards.component.css'],
-  providers: [BoardService]
+  providers: [BoardService],
 })
 export class MyBoardsComponent implements OnInit {
   boards: Board[] = [];
@@ -23,23 +22,21 @@ export class MyBoardsComponent implements OnInit {
   }
 
   getMyBoards(): void {
-    this.boardService.getBoards()
-      .subscribe(result => {
-        this.loading = false;
-        this.boards = result;
-      });
+    this.boardService.getBoards().subscribe(result => {
+      this.loading = false;
+      this.boards = result;
+    });
   }
 
-  deleteBoard(id: string, board: Board) {
+  deleteBoard(board: Board) {
     if (confirm(`Weet u zeker dat u ${board.title} wilt verwijderen?`)) {
-      this.boardService.deleteBoard(id)
+      this.boardService
+        .deleteBoard(board.id)
         .pipe(first())
-        .subscribe(
-          response => {
-            this.loading = true;
-            this.getMyBoards();
-          }
-        );
+        .subscribe(response => {
+          this.loading = true;
+          this.getMyBoards();
+        });
     }
   }
 }

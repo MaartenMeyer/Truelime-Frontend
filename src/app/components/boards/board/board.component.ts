@@ -1,19 +1,27 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, NgZone, OnDestroy } from '@angular/core';
-import {Board} from '../../../models/board';
-import {BoardService} from '../../../services/board.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+  NgZone,
+  OnDestroy,
+} from '@angular/core';
+import { Board } from '../../../models/board';
+import { BoardService } from '../../../services/board.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import {CardModalComponent} from './modals/card-modal/card-modal.component';
-import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
+import { CardModalComponent } from './modals/card-modal/card-modal.component';
+import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { SignalRService } from 'src/app/services/signalr.service';
 import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
+import { BoardModalComponent } from './modals/board-modal/board-modal.component';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BoardComponent implements OnInit, OnDestroy {
   mdbModalRef: MDBModalRef;
@@ -29,12 +37,12 @@ export class BoardComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef,
     private zone: NgZone
   ) {
-    this.signalRSubscription = this.signalrService.getMessage().subscribe(
-      (message) => {
+    this.signalRSubscription = this.signalrService
+      .getMessage()
+      .subscribe(message => {
         this.loadBoard();
-      }
-    );
-    }
+      });
+  }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -47,7 +55,8 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   loadBoard() {
-    this.boardService.getBoardById(this.board.id)
+    this.boardService
+      .getBoardById(this.board.id)
       .pipe(first())
       .subscribe(board => {
         this.zone.run(() => {
@@ -57,12 +66,28 @@ export class BoardComponent implements OnInit, OnDestroy {
       });
   }
 
+  openBoardModal() {
+    this.openModal(BoardModalComponent, {
+      data: {
+        content: {
+          boardId: this.board.id,
+          title: this.board.title,
+          description: this.board.description,
+        },
+      },
+    });
+  }
+
   openLaneModal() {
-    this.openModal(LaneModalComponent, { data: { content: { boardId: this.board.id } }});
+    this.openModal(LaneModalComponent, {
+      data: { content: { boardId: this.board.id } },
+    });
   }
 
   openCardModal(laneId: string) {
-    this.openModal(CardModalComponent, { data: { content: { boardId: this.board.id, laneId } }});
+    this.openModal(CardModalComponent, {
+      data: { content: { boardId: this.board.id, laneId } },
+    });
   }
 
   private openModal(component: any, modalOptions: any) {
@@ -78,26 +103,26 @@ export class BoardComponent implements OnInit, OnDestroy {
 
   clearBoard() {
     if (confirm(`Weet u zeker dat u alle kaarten van ${this.board.title} wilt verwijderen?`)) {
-      this.boardService.deleteAllCards(this.board.id)
+      this.boardService
+        .deleteAllCards(this.board.id)
         .pipe(first())
-        .subscribe(data => {
-        });
+        .subscribe(data => {});
     }
   }
 
   deleteLane(laneId: string) {
     if (confirm(`Weet u zeker dat u deze rij wilt verwijderen?`)) {
-      this.boardService.deleteLane(this.board.id, laneId)
+      this.boardService
+        .deleteLane(this.board.id, laneId)
         .pipe(first())
-        .subscribe(data => {
-        });
+        .subscribe(data => {});
     }
   }
 
   deleteCard(laneId: string, cardId: string) {
-    this.boardService.deleteCard(this.board.id, laneId, cardId)
+    this.boardService
+      .deleteCard(this.board.id, laneId, cardId)
       .pipe(first())
-      .subscribe(data => {
-      });
+      .subscribe(data => {});
   }
 }

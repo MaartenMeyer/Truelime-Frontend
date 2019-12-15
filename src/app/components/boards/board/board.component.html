@@ -5,23 +5,45 @@
         <mdb-card-header class="titleHeader">
           <div class="row row-title justify-content-center">
             <div class="col-md-8 pl-0 pr-0">
-              <div class="row">
-                <h3>{{board?.title}}</h3>
+              <div class="row text-center">
+                <h3>{{ board?.title }}</h3>
               </div>
-              <div class="row">
-                <h6>{{board?.description}} | {{board?.owner}} | {{board?.participants}}</h6>
+              <div class="row text-center">
+                <h6>
+                  {{ board?.description }} | {{ board?.owner }} |
+                  {{ board?.participants }}
+                </h6>
               </div>
             </div>
             <div class="col-md-4 pl-0 pr-0">
               <div class="row justify-content-center">
-                <button mdbBtn mdbWavesEffect type="button" class="clearCards" (click)="clearBoard()">
-                  <mdb-icon fas icon="recycle"></mdb-icon>
+                <button
+                  mdbBtn
+                  mdbWavesEffect
+                  type="button"
+                  class="clearCards"
+                  (click)="clearBoard()"
+                >
+                  <mdb-icon fas icon="eraser"></mdb-icon>
                 </button>
                 <div class="" role="group">
-                  <!-- <button mdbBtn mdbWavesEffect type="button" class="laneBtn">
-                    <mdb-icon fas icon="minus"></mdb-icon>
-                  </button> -->
-                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn" [attr.disabled]="board.lanes.length > 4 ? '' : null" (click)="openLaneModal()">
+                  <button
+                    mdbBtn
+                    mdbWavesEffect
+                    type="button"
+                    class="laneBtn"
+                    (click)="openBoardModal()"
+                  >
+                    <mdb-icon fas icon="edit"></mdb-icon>
+                  </button>
+                  <button
+                    mdbBtn
+                    mdbWavesEffect
+                    type="button"
+                    class="laneBtn"
+                    [attr.disabled]="board.lanes.length > 4 ? '' : null"
+                    (click)="openLaneModal()"
+                  >
                     <mdb-icon fas icon="plus"></mdb-icon>
                   </button>
                 </div>
@@ -35,14 +57,29 @@
               <div class="md-form">
                 <div class="row row-title justify-content-center">
                   <div class="col-md-10 pl-0 pr-0">
-                    <input mdbInput type="text" class="form-control titleInput" [(ngModel)]="lane.title">
+                    <input
+                      mdbInput
+                      type="text"
+                      class="form-control titleInput"
+                      [(ngModel)]="lane.title"
+                    />
                     <label for="title" class=""></label>
                   </div>
                   <div class="col-md-2 pl-0 pr-0">
-                    <button class="deleteLane" (click)="deleteLane(lane.id)" mdbBtn mdbWavesEffect>
+                    <button
+                      class="deleteLane"
+                      (click)="deleteLane(lane.id)"
+                      mdbBtn
+                      mdbWavesEffect
+                    >
                       <mdb-icon fas icon="minus"></mdb-icon>
                     </button>
-                    <button class="addCard" (click)="openCardModal(lane.id)" mdbBtn mdbWavesEffect>
+                    <button
+                      class="addCard"
+                      (click)="openCardModal(lane.id)"
+                      mdbBtn
+                      mdbWavesEffect
+                    >
                       <mdb-icon fas icon="plus"></mdb-icon>
                     </button>
                   </div>
@@ -50,19 +87,28 @@
               </div>
               <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
                 <mdb-card-header>
-                  {{card.title}}
+                  {{ card.title }}
                   <div class="btn-group btnCard" mdbDropdown>
-                    <button class="cardSettings" mdbDropdownToggle mdbBtn mdbWavesEffect>
+                    <button
+                      class="cardSettings"
+                      mdbDropdownToggle
+                      mdbBtn
+                      mdbWavesEffect
+                    >
                       <mdb-icon fas icon="cog"></mdb-icon>
                     </button>
                     <div class="dropdown-menu dropdown-primary">
                       <a class="dropdown-item">Bewerk kaart</a>
-                      <a class="dropdown-item" (click)="deleteCard(lane.id, card.id)">Verwijder kaart</a>
+                      <a
+                        class="dropdown-item"
+                        (click)="deleteCard(lane.id, card.id)"
+                        >Verwijder kaart</a
+                      >
                     </div>
                   </div>
                 </mdb-card-header>
                 <mdb-card-body>
-                  {{card.message}}
+                  {{ card.message }}
                 </mdb-card-body>
               </mdb-card>
             </div>

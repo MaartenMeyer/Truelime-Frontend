@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,14 +12,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import {BoardsModule} from './components/boards/boards.module';
+import { BoardsModule } from './components/boards/boards.module';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 import { CardModalComponent } from './components/boards/board/modals/card-modal/card-modal.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {JwtInterceptor} from './helpers/jwt.interceptor';
-import {ErrorInterceptor} from './helpers/error.interceptor';
 import { LaneModalComponent } from './components/boards/board/modals/lane-modal/lane-modal.component';
-
+import { BoardModalComponent } from './components/boards/board/modals/board-modal/board-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { LaneModalComponent } from './components/boards/board/modals/lane-modal/
     RegisterComponent,
     SettingsComponent,
     CardModalComponent,
-    LaneModalComponent
+    LaneModalComponent,
+    BoardModalComponent,
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -37,14 +38,18 @@ import { LaneModalComponent } from './components/boards/board/modals/lane-modal/
     BoardsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  entryComponents: [CardModalComponent, LaneModalComponent],
-  schemas: [ NO_ERRORS_SCHEMA ],
+  entryComponents: [
+    CardModalComponent,
+    LaneModalComponent,
+    BoardModalComponent,
+  ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
