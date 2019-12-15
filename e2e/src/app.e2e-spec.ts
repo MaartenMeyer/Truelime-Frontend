@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Should redirect to login', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('TrueLime-Frontend app is running!');
+    expect(page.getTitleText()).toEqual('Inloggen');
   });
 
   afterEach(async () => {
