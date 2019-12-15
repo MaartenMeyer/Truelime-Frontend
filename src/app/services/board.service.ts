@@ -40,8 +40,8 @@ export class BoardService {
 
   /** Lane Requests **/
   // Create lane
-  createLane() {
-
+  createLane(boardId: string, lane: Lane) {
+    return this.http.post<Lane>(`${environment.baseUrl}/boards/${boardId}/lanes`, lane);
   }
 
   // Update lane
@@ -50,8 +50,8 @@ export class BoardService {
   }
 
   // Delete lane
-  deleteLane() {
-
+  deleteLane(boardId: string, laneId: string) {
+    return this.http.delete(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}`);
   }
 
   /** Card Requests **/
@@ -61,17 +61,17 @@ export class BoardService {
   }
 
   // Update card
-  updateCard() {
-
+  updateCard(boardId: string, laneId: string, cardId: string, card: Card) {
+    return this.http.put<Card>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}/cards/${cardId}`, card);
   }
 
   // Delete card
-  deleteCard(boardid: string, laneid: string, cardid: string) {
-    return this.http.delete(`${environment.baseUrl}/boards/${boardid}/lanes/${laneid}/cards/${cardid}`);
+  deleteCard(boardId: string, laneId: string, cardId: string) {
+    return this.http.delete(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}/cards/${cardId}`);
   }
 
   // Delete all cards
-  deleteAllCards(id: string) {
-    return this.http.delete(`${environment.baseUrl}/boards/${id}/cards`);
+  deleteAllCards(boardId: string) {
+    return this.http.delete(`${environment.baseUrl}/boards/${boardId}/cards`);
   }
 }

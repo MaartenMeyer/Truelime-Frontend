@@ -3,10 +3,11 @@ import {Board} from '../../../models/board';
 import {BoardService} from '../../../services/board.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { first } from 'rxjs/operators';
-import {CardModalComponent} from '../card-modal/card-modal.component';
+import {CardModalComponent} from './modals/card-modal/card-modal.component';
 import {MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
 import { SignalRService } from 'src/app/services/signalr.service';
 import { Subscription } from 'rxjs';
+import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 
 @Component({
   selector: 'app-board',
@@ -49,7 +50,6 @@ export class BoardComponent implements OnInit {
     this.boardService.getBoardById(this.board.id)
       .pipe(first())
       .subscribe(board => {
-        // Realtime update fix
         this.zone.run(() => {
           this.board = board;
           this.changeDetector.markForCheck();
@@ -57,13 +57,16 @@ export class BoardComponent implements OnInit {
       });
   }
 
+  openLaneModal(boardId: string) {
+    this.openModal(LaneModalComponent, { data: { content: { boardId } }});
+  }
+
   openCardModal(boardId: string, laneId: string) {
-    const modalOptions = {
-      data: {
-        content: { boardId, laneId}
-      }
-    };
-    this.mdbModalRef = this.mdbModalService.show(CardModalComponent,  modalOptions );
+    this.openModal(CardModalComponent, { data: { content: { boardId, laneId } }});
+  }
+
+  private openModal(component: any, modalOptions: any) {
+    this.mdbModalRef = this.mdbModalService.show(component, modalOptions);
   }
 
   //IN PROGRESS

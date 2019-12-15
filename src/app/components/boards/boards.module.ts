@@ -16,7 +16,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NewBoardComponent,
     MyBoardsComponent,
     BoardsComponent,
-    BoardComponent,
+    BoardComponent
   ],
     imports: [
         DragDropModule,
