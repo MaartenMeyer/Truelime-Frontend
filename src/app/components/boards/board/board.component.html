@@ -14,14 +14,14 @@
             </div>
             <div class="col-md-4 pl-0 pr-0">
               <div class="row justify-content-center">
-                <button mdbBtn mdbWavesEffect type="button" class="clearCards" (click)="clearBoard(board.id, board)">
+                <button mdbBtn mdbWavesEffect type="button" class="clearCards" (click)="clearBoard()">
                   <mdb-icon fas icon="recycle"></mdb-icon>
                 </button>
                 <div class="" role="group">
-                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn">
+                  <!-- <button mdbBtn mdbWavesEffect type="button" class="laneBtn">
                     <mdb-icon fas icon="minus"></mdb-icon>
-                  </button>
-                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn">
+                  </button> -->
+                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn" [attr.disabled]="board.lanes.length > 4 ? '' : null" (click)="openLaneModal(board.id)">
                     <mdb-icon fas icon="plus"></mdb-icon>
                   </button>
                 </div>
@@ -39,7 +39,10 @@
                     <label for="title" class=""></label>
                   </div>
                   <div class="col-md-2 pl-0 pr-0">
-                    <button class="addCard" (click)="openCardModal(board.id, lane.id)" mdbBtn mdbWavesEffect>
+                    <button class="deleteLane" (click)="deleteLane(lane.id)" mdbBtn mdbWavesEffect>
+                      <mdb-icon fas icon="minus"></mdb-icon>
+                    </button>
+                    <button class="addCard" (click)="openCardModal(lane.id)" mdbBtn mdbWavesEffect>
                       <mdb-icon fas icon="plus"></mdb-icon>
                     </button>
                   </div>

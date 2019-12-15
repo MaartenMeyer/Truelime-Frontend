@@ -1,10 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MDBModalRef} from 'angular-bootstrap-md';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BoardService} from '../../../services/board.service';
+import {BoardService} from '@app/services/board.service';
 import {first} from 'rxjs/operators';
-import {Board} from '../../../models/board';
-import {Lane} from '../../../models/lane';
 
 @Component({
   selector: 'app-card-modal',
@@ -20,8 +18,7 @@ export class CardModalComponent implements OnInit {
     public mdbModalRef: MDBModalRef,
     private formBuilder: FormBuilder,
     private boardService: BoardService,
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
     this.cardForm = this.formBuilder.group({
@@ -36,14 +33,12 @@ export class CardModalComponent implements OnInit {
 
   submitCard(boardId: string, laneId: string) {
     this.submitted = true;
-
     if (this.cardForm.invalid) {
-      alert('Card value is not correct!');
+      return;
     }
     this.boardService.createCard(boardId, laneId, this.cardForm.value)
       .pipe(first()).subscribe(data => {
         this.mdbModalRef.hide();
-      // alert('Card is created!');
     });
   }
 }

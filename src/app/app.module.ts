@@ -11,11 +11,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {BoardsModule} from './components/boards/boards.module';
-import { CardModalComponent } from './components/boards/card-modal/card-modal.component';
+import { CardModalComponent } from './components/boards/board/modals/card-modal/card-modal.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
+import { LaneModalComponent } from './components/boards/board/modals/lane-modal/lane-modal.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    CardModalComponent
+    CardModalComponent,
+    LaneModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -37,7 +39,7 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [CardModalComponent],
+  entryComponents: [CardModalComponent, LaneModalComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
