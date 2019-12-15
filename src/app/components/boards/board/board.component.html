@@ -21,7 +21,7 @@
                   <!-- <button mdbBtn mdbWavesEffect type="button" class="laneBtn">
                     <mdb-icon fas icon="minus"></mdb-icon>
                   </button> -->
-                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn" [attr.disabled]="board.lanes.length > 4 ? '' : null" (click)="openLaneModal(board.id)">
+                  <button mdbBtn mdbWavesEffect type="button" class="laneBtn" [attr.disabled]="board.lanes.length > 4 ? '' : null" (click)="openLaneModal()">
                     <mdb-icon fas icon="plus"></mdb-icon>
                   </button>
                 </div>
