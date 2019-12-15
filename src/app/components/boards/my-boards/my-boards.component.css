@@ -13,14 +13,7 @@
 .myBoardsCard {
   margin-top: 10px;
   margin-bottom: 10px;
-  padding: 10px 10px 10px 10px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  margin-left: 0px;
-  margin-right: 0px;
+  padding: 10px 0 0 0;
 }
 
 h2 {
@@ -29,15 +22,21 @@ h2 {
 }
 
 .boardTitle {
-  padding-left: 5px;
-  padding-right: 5px;
+  outline: none;
+  text-align: left;
+  margin-left: 10px;
 }
 
 .boardRemove {
+  top: 40%;
+  right: 2%;
+  position: absolute;
   color: #ED5603;
   border: 2px solid #ED5603;
   cursor: pointer;
+  margin: 0;
+  padding: 2px 2px 0 2px;
+  float: right;
   background-color: #ffffff;
   font-size: 10px;
-  text-align: center;
 }

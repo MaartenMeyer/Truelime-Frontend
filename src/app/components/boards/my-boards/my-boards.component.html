@@ -1,29 +1,10 @@
 <div class="imgDiv">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-md-offset-3 pl-0 pr-0 justify-content-center">
-        <span *ngIf="loading" class="spinner-border mt-3" style="width: 5rem; height: 5rem;"></span>
-        <mdb-card class="myBoardsCard" *ngFor="let board of boards">
-          <div class="row justify-content-center">
-            <div class="col-md-10 pl-0 pr-0">
-              <div class="row">
-                <h2 class="boardTitle" [routerLink]="['/boards/board', board.id]">{{board.title}}</h2>
-              </div>
-              <div class="row">
-                <h5 class="boardTitle">{{board.description}}</h5>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div>
-                <button class="boardRemove" mdbBtn mdbWavesEffect (click)="deleteBoard(board.id, board)">
-                  <mdb-icon fas icon="trash-alt"></mdb-icon>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </mdb-card>
-      </div>
-    </div>
+    <span *ngIf="loading" class="spinner-border mt-3" style="width: 5rem; height: 5rem;"></span>
+    <mdb-card class="myBoardsCard" *ngFor="let board of boards">
+      <h2 class="boardTitle" [routerLink]="['/boards/board', board.id]">{{board.title}}</h2>
+      <h5 class="boardTitle">{{board.description}}</h5>
+      <button class="boardRemove" mdbBtn mdbWavesEffect (click)="deleteBoard(board.id, board)"><mdb-icon fas icon="trash-alt"></mdb-icon></button>
+    </mdb-card>
   </div>
 </div>

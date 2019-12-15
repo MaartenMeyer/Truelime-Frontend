@@ -1,17 +1,13 @@
 .imgDiv {
   background-image: url("../../../assets/images/backgroundOverlay.png");
   overflow: hidden;
-  min-height: 100vh;
+  height: 100vh;
   width:100%;
   text-align:center;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-}
-
-.container--fluid {
-  max-width: 100%;
+  position: fixed;
 }
 
 div {
@@ -42,6 +38,7 @@ h1 {
 
 mdb-card {
   margin-top: 50px;
+  min-width: 600px;
   max-width: 600px;
   left: 50%;
   top: -15%;

@@ -18,19 +18,20 @@
   margin: 10px 5px 10px 5px;
 }
 
-.row-title {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .clearCards {
+  float: right;
+  margin-right: 185px;
   background-color: #ffffff;
   color: #ED5603;
   border: 2px solid #ED5603;
   font-size: 10px;
   cursor: pointer;
+  margin-top: -55px;
+}
+
+.btn-group {
+  float: right;
+  margin-top: -55px;
 }
 
 .laneBtn {
@@ -58,8 +59,6 @@
 .board {
   border: 2px solid #8bd201;
   min-height: 500px;
-  overflow-x: scroll;
-  white-space: nowrap;
 }
 
 .lane {
@@ -93,6 +92,8 @@
 
 .addCard {
   padding: 2px 2px 0 2px;
+  margin-top: -40px;
+  float: right;
   background-color: #ffffff;
   color: #8bd201;
   font-size: 10px;

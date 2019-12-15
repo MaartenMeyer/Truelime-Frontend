@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 export class BoardComponent implements OnInit {
   mdbModalRef: MDBModalRef;
   board: Board;
+  id: string;
   private signalRSubscription: Subscription;
 
   constructor(
@@ -37,7 +38,13 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.board = data.board;
+      if (data.board.error) {
+
+      } else {
+        this.board = data.board;
+        this.id = data.board.id;
+        console.log(this.board)
+      }
     });
   }
 
@@ -46,7 +53,7 @@ export class BoardComponent implements OnInit {
   }
 
   loadBoard() {
-    this.boardService.getBoardById(this.board.id)
+    this.boardService.getBoardById(this.id)
       .pipe(first())
       .subscribe(board => {
         // Realtime update fix
@@ -83,7 +90,7 @@ export class BoardComponent implements OnInit {
   }
 
   deleteCard(laneId: string, cardId: string) {
-    const boardid = this.board.id;
+    const boardid = this.id;
     const laneid = laneId;
     const cardid = cardId;
 
