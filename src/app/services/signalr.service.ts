@@ -15,7 +15,7 @@ export class SignalRService {
     this.connection = new signalR.HubConnectionBuilder()
       .withUrl(`${environment.baseUrl}/notify`)
       .build();
-      this.connect();
+    this.connect();
   }
 
   private connect() {

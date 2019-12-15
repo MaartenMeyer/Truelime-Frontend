@@ -33,14 +33,12 @@ export class CardModalComponent implements OnInit {
 
   submitCard(boardId: string, laneId: string) {
     this.submitted = true;
-
     if (this.cardForm.invalid) {
-      alert('Card value is not correct!');
+      return;
     }
     this.boardService.createCard(boardId, laneId, this.cardForm.value)
       .pipe(first()).subscribe(data => {
         this.mdbModalRef.hide();
-      // alert('Card is created!');
     });
   }
 }

@@ -38,7 +38,7 @@ export class LaneModalComponent implements OnInit {
     this.boardService.createLane(boardId, this.laneForm.value)
       .pipe(first()).subscribe(data => {
         this.mdbModalRef.hide();
-      })
+      });
   }
 
 }

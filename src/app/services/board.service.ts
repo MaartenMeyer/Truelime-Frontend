@@ -12,7 +12,7 @@ export class BoardService {
 
   constructor(private http: HttpClient) {}
 
-  /** Board Requests **/
+  /** Board Requests  */
   // Create new board
   createBoard(board: Board) {
     return this.http.post<Board>(`${environment.baseUrl}/boards`, board);
@@ -38,7 +38,7 @@ export class BoardService {
     return this.http.delete(`${environment.baseUrl}/boards/${id}`);
   }
 
-  /** Lane Requests **/
+  /** Lane Requests */
   // Create lane
   createLane(boardId: string, lane: Lane) {
     return this.http.post<Lane>(`${environment.baseUrl}/boards/${boardId}/lanes`, lane);
@@ -46,7 +46,7 @@ export class BoardService {
 
   // Update lane
   updateLane(boardId: string, laneId: string, lane: Lane) {
-    return this.http.put<Lane>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}`, lane)
+    return this.http.put<Lane>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}`, lane);
   }
 
   // Delete lane
@@ -54,7 +54,7 @@ export class BoardService {
     return this.http.delete(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}`);
   }
 
-  /** Card Requests **/
+  /** Card Requests */
   // Create card
   createCard(boardId: string, laneId: string, card: Card) {
     return this.http.post<Card>(`${environment.baseUrl}/boards/${boardId}/lanes/${laneId}/cards`, card);
