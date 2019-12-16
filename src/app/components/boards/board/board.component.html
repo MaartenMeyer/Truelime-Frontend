@@ -94,30 +94,34 @@
               </div>
               <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
                 <mdb-card-header>
-                  {{ card.title }}
-                  <div class="btn-group btnCard" mdbDropdown>
-                    <button
-                      class="cardSettings"
+                    <span class="md-form">
+                      <input 
+                        mdbInput
+                        type="text"
+                        [(ngModel)]="card.title"
+                        class="cardTitleInput"
+                        (change)="updateCard(lane.id, card.id, card)"
+                      >
+                    </span>
+                      <i class="far fa-times-circle cardSettings
                       mdbDropdownToggle
                       mdbBtn
-                      mdbWavesEffect
-                    >
-                      <mdb-icon fas icon="cog"></mdb-icon>
-                    </button>
-                    <div class="dropdown-menu dropdown-primary">
-                      <a class="dropdown-item">Bewerk kaart</a>
-                      <a
-                        class="dropdown-item"
-                        (click)="deleteCard(lane.id, card.id)"
-                        >Verwijder kaart</a
-                      >
-                    </div>
-                  </div>
+                      mdbWavesEffect"
+                      (click)="deleteCard(lane.id, card.id)"></i>
+                    
                 </mdb-card-header>
                 <mdb-card-body class="card-message">
                   <div class="row">
                     <div class="col-md-12">
-                        {{ card.message }}
+                      <span class="md-form">
+                        <input 
+                          mdbInput
+                          type="text"
+                          [(ngModel)]="card.message"
+                          class="cardMessageInput"
+                          (change)="updateCard(lane.id, card.id, card)"
+                        >
+                      </span>
                     </div>
                   </div>
                 </mdb-card-body>

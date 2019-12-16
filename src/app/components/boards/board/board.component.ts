@@ -17,8 +17,12 @@ import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './modals/board-modal/board-modal.component';
 import { Lane } from '@app/models/lane';
+<<<<<<< HEAD
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {Card} from '@app/models/card';
+=======
+import { Card } from '@app/models/card';
+>>>>>>> 9af05fdccac962570fff45718924adea76e3cc39
 
 @Component({
   selector: 'app-board',
@@ -136,8 +140,18 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   deleteCard(laneId: string, cardId: string) {
-    this.boardService
+    if(confirm(`Weet u zeker dat u dit kaartje wilt verwijderen?`)){
+      this.boardService
       .deleteCard(this.board.id, laneId, cardId)
+      .pipe(first())
+      .subscribe(data => {});
+  
+    }
+  }
+
+  updateCard(laneId: string, cardId: string, card: Card){
+    this.boardService
+      .updateCard(this.board.id, laneId, cardId, card)
       .pipe(first())
       .subscribe(data => {});
   }
