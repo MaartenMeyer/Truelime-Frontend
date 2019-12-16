@@ -10,7 +10,7 @@ import {environment} from '@environments/environment';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  isLoggedInNavigation = new BehaviorSubject<boolean>(false);
+  isLoggedInNavigation = new BehaviorSubject<boolean>(this.isLoggedIn());
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -30,6 +30,10 @@ export class AuthService {
         this.isLoggedInNavigation.next(true);
         return user;
       }));
+  }
+
+  private isLoggedIn() : boolean {
+    return localStorage.getItem('currentUser') !== null;
   }
 
   logout() {
