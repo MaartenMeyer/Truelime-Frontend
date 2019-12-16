@@ -45,6 +45,16 @@
   margin-top: -25px;
 }
 
+.cardTitleInput{
+  margin-right: 10px;
+  width: 50%;
+}
+
+.cardMessageInput{
+  width: -webkit-fill-available;
+}
+
+
 .md-form input[type=text]:focus:not([readonly]), .md-form input[type=password]:focus:not([readonly]), .md-form input[type=email]:focus:not([readonly]), .md-form input[type=url]:focus:not([readonly]), .md-form input[type=time]:focus:not([readonly]), .md-form input[type=date]:focus:not([readonly]), .md-form input[type=datetime-local]:focus:not([readonly]), .md-form input[type=tel]:focus:not([readonly]), .md-form input[type=number]:focus:not([readonly]), .md-form input[type=search-md]:focus:not([readonly]), .md-form input[type=search]:focus:not([readonly]), .md-form textarea.md-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #8bd201;
   border-bottom: 1px solid #8bd201;
@@ -71,7 +81,7 @@
   text-align: center;
   margin-bottom: 5px;
   width: d;
-  z-index: 1;
+  z-index: 1; 
 }
 
 .cardSettings {
