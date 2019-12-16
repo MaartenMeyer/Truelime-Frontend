@@ -16,6 +16,7 @@ import { SignalRService } from 'src/app/services/signalr.service';
 import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './modals/board-modal/board-modal.component';
+import { Lane } from '@app/models/lane';
 
 @Component({
   selector: 'app-board',
@@ -94,12 +95,13 @@ export class BoardComponent implements OnInit, OnDestroy {
     this.mdbModalRef = this.mdbModalService.show(component, modalOptions);
   }
 
-  // IN PROGRESS
-  // Change Title of Lane on detect change
-  // Add (change)="onLaneTitleChange()" to Lane input in board.component.html
-  // onLaneTitleChange(boardId: string, laneId: string, lane: Lane){
-  //   this.boardService.updateLane(boardId, laneId, lane)
-  // }
+  onLaneTitleChange(laneId: string, lane: Lane){
+    console.log(lane);
+    this.boardService
+    .updateLane(this.board.id, laneId, lane)
+    .pipe(first())
+    .subscribe(data => {});
+  }
 
   clearBoard() {
     if (confirm(`Weet u zeker dat u alle kaarten van ${this.board.title} wilt verwijderen?`)) {

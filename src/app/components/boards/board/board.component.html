@@ -60,6 +60,7 @@
                       type="text"
                       class="form-control titleInput"
                       [(ngModel)]="lane.title"
+                      (change)="onLaneTitleChange(lane.id, lane)"
                     />
                     <label for="title" class=""></label>
                   </div>
