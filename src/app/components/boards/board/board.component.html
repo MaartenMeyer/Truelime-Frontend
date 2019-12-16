@@ -95,36 +95,12 @@
                         (change)="updateCard(lane.id, card.id, card)"
                       >
                     </span>
-                  
-                  <!-- <div class="btn-group btnCard" mdbDropdown>
-                    <button
-                      class="cardSettings"
+                      <i class="far fa-times-circle cardSettings
                       mdbDropdownToggle
                       mdbBtn
-                      mdbWavesEffect
-                    >
-                      <mdb-icon fas icon="cog"></mdb-icon>
-                    </button>
-                    <div class="dropdown-menu dropdown-primary">
-                      <a class="dropdown-item">Bewerk kaart</a>
-                      <a
-                        class="dropdown-item"
-                        (click)="deleteCard(lane.id, card.id)"
-                        >Verwijder kaart</a
-                      >
-                    </div>
-                  </div> -->
-
-                  <button
-                      class="cardSettings"
-                      mdbDropdownToggle
-                      mdbBtn
-                      mdbWavesEffect
-                      (click)="deleteCard(lane.id, card.id)"
-                      >
-                      <i class="far fa-times-circle"></i>
-                    </button>
-
+                      mdbWavesEffect"
+                      (click)="deleteCard(lane.id, card.id)"></i>
+                    
                 </mdb-card-header>
                 <mdb-card-body class="card-message">
                   <div class="row">
