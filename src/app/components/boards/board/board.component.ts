@@ -17,6 +17,8 @@ import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './modals/board-modal/board-modal.component';
 import { Lane } from '@app/models/lane';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {Card} from '@app/models/card';
 
 @Component({
   selector: 'app-board',
@@ -65,6 +67,18 @@ export class BoardComponent implements OnInit, OnDestroy {
           this.changeDetector.markForCheck();
         });
       });
+  }
+
+  onDrop(event: CdkDragDrop<any[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex, event.currentIndex);
+    }
   }
 
   openBoardModal() {
