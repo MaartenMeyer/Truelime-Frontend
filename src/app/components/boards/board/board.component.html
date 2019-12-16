@@ -93,9 +93,9 @@
                 </div>
               </div>
               <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
-                <mdb-card-header>
+                <mdb-card-header cdkDragHandle>
                     <span class="md-form">
-                      <input 
+                      <input
                         mdbInput
                         type="text"
                         [(ngModel)]="card.title"
@@ -103,24 +103,24 @@
                         (change)="updateCard(lane.id, card.id, card)"
                       >
                     </span>
-                      <i class="far fa-times-circle cardSettings
+                      <i class="far fa-trash-alt cardSettings
                       mdbDropdownToggle
                       mdbBtn
                       mdbWavesEffect"
                       (click)="deleteCard(lane.id, card.id)"></i>
-                    
+
                 </mdb-card-header>
                 <mdb-card-body class="card-message">
                   <div class="row">
                     <div class="col-md-12">
                       <span class="md-form">
-                        <input 
+                        <textarea
                           mdbInput
                           type="text"
                           [(ngModel)]="card.message"
-                          class="cardMessageInput"
+                          class="md-textarea form-control"
                           (change)="updateCard(lane.id, card.id, card)"
-                        >
+                        ></textarea>
                       </span>
                     </div>
                   </div>

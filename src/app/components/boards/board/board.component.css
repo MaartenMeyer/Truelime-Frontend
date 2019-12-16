@@ -47,13 +47,8 @@
 
 .cardTitleInput{
   margin-right: 10px;
-  width: 50%;
+  width: 90%;
 }
-
-.cardMessageInput{
-  width: 70%;
-}
- 
 
 .md-form input[type=text]:focus:not([readonly]), .md-form input[type=password]:focus:not([readonly]), .md-form input[type=email]:focus:not([readonly]), .md-form input[type=url]:focus:not([readonly]), .md-form input[type=time]:focus:not([readonly]), .md-form input[type=date]:focus:not([readonly]), .md-form input[type=datetime-local]:focus:not([readonly]), .md-form input[type=tel]:focus:not([readonly]), .md-form input[type=number]:focus:not([readonly]), .md-form input[type=search-md]:focus:not([readonly]), .md-form input[type=search]:focus:not([readonly]), .md-form textarea.md-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #8bd201;
@@ -68,39 +63,39 @@
 .board {
   border: 2px solid #8bd201;
   min-height: 70vh;
+  border-radius: 10px;
 }
 
 .lane {
   border-left: 1px solid #8bd201;
-  border-top: 0px;
+  border-top: 0;
   border-bottom: 1px solid #8bd201;
   border-right: 1px solid #8bd201;
 }
 
 #card {
   text-align: center;
-  margin-bottom: 5px;
-  width: d;
-  z-index: 1; 
+  margin-bottom: 15px;
+  z-index: 1;
 }
+
+mdb-card-body {
+  padding: 0px 0px 0px 10px;
+  margin-bottom: 10px;
+}
+
+/*.md-form textarea.md-textarea {*/
+/*  padding: 10px 0px 10px 0px;*/
+/*}*/
 
 .cardSettings {
   padding: 2px 2px 0 2px;
   margin: 0;
   float: right;
   background-color: transparent;
-  color: #d20101;
-  font-size: 10px;
+  color: #ED5603;
+  font-size: 12px;
   cursor: pointer;
-  font-size: 15px;
-}
-
-.btnCard {
-  margin-top: 0;
-}
-
-.dropdown-menu {
-  z-index: 1;
 }
 
 .deleteLane {
