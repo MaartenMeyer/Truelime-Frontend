@@ -62,4 +62,20 @@ export class LaneComponent implements OnInit {
         event.previousIndex, event.currentIndex);
     }
   }
+
+  deleteCard(laneId: string, cardId: string) {
+    if (confirm(`Weet u zeker dat u dit kaartje wilt verwijderen?`)) {
+      this.boardService
+      .deleteCard(this.board.id, laneId, cardId)
+      .pipe(first())
+      .subscribe(data => {});
+    }
+  }
+
+  updateCard(laneId: string, cardId: string, card: Card) {
+    this.boardService
+      .updateCard(this.board.id, laneId, cardId, card)
+      .pipe(first())
+      .subscribe(data => {});
+  }
 }

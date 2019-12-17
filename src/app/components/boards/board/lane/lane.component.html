@@ -36,8 +36,40 @@
         </button>
       </div>
     </div>
-    <div *ngFor="let card of lane.cards">
-      <app-card [board]="board" [lane]="lane" [card]="card"></app-card>
-    </div>
+    <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
+      <mdb-card-header cdkDragHandle>
+        <span class="md-form">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="card.title"
+            class="cardTitleInput"
+            (change)="updateCard(lane.id, card.id, card)"
+          />
+        </span>
+        <i
+          class="far fa-trash-alt cardSettings
+            mdbDropdownToggle
+            mdbBtn
+            mdbWavesEffect"
+          (click)="deleteCard(lane.id, card.id)"
+        ></i>
+      </mdb-card-header>
+      <mdb-card-body class="card-message">
+        <div class="row">
+          <div class="col-md-12">
+            <span class="md-form">
+              <textarea
+                mdbInput
+                type="text"
+                [(ngModel)]="card.message"
+                class="md-textarea form-control"
+                (change)="updateCard(lane.id, card.id, card)"
+              ></textarea>
+            </span>
+          </div>
+        </div>
+      </mdb-card-body>
+    </mdb-card>
   </div>
 </div>
