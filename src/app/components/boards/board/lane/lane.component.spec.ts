@@ -14,18 +14,18 @@ import { Lane } from '@app/models/lane';
 describe('LaneComponent', () => {
   let component: LaneComponent;
   let fixture: ComponentFixture<LaneComponent>;
+  const lane: Lane = {
+    id: '1',
+    title: 'Title',
+    cards: null
+  };
   const board: Board = {
     id: '1',
     title: 'Title',
     description: 'Description',
     owner: null,
     participants: null,
-    lanes: null,
-  };
-  const lane: Lane = {
-    id: '1',
-    title: 'Title',
-    cards: null
+    lanes: [lane],
   };
 
   beforeEach(async(() => {
