@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://localhost:44378/api'
+  baseUrl: 'https://api-truelime.azurewebsites.net/api'
 };
 
 /*
