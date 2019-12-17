@@ -27,93 +27,35 @@
                   <mdb-icon fas icon="eraser"></mdb-icon>
                 </button>
                 <button
-                    mdbBtn
-                    mdbWavesEffect
-                    type="button"
-                    class="laneBtn"
-                    (click)="openBoardModal()"
-                  >
-                    <mdb-icon fas icon="edit"></mdb-icon>
-                  </button>
-                  <button
-                    mdbBtn
-                    mdbWavesEffect
-                    type="button"
-                    class="laneBtn"
-                    [attr.disabled]="board.lanes.length > 4 ? '' : null"
-                    (click)="openLaneModal()"
-                  >
-                    <mdb-icon fas icon="plus"></mdb-icon>
-                  </button>
+                  mdbBtn
+                  mdbWavesEffect
+                  type="button"
+                  class="laneBtn"
+                  (click)="openBoardModal()"
+                >
+                  <mdb-icon fas icon="edit"></mdb-icon>
+                </button>
+                <button
+                  mdbBtn
+                  mdbWavesEffect
+                  type="button"
+                  class="laneBtn"
+                  [attr.disabled]="board.lanes.length > 4 ? '' : null"
+                  (click)="openLaneModal()"
+                >
+                  <mdb-icon fas icon="plus"></mdb-icon>
+                </button>
               </div>
             </div>
           </div>
         </mdb-card-header>
         <mdb-card-body>
           <div class="board row justify-content-center">
-            <div class="lane col-md-6 col-sm-6 col-xl" *ngFor="let lane of board?.lanes">
-              <div class="md-form">
-                <div class="row row-title justify-content-center">
-                  <div class="col-md-10 pl-0 pr-0">
-                    <input
-                      mdbInput
-                      type="text"
-                      class="form-control titleInput"
-                      [(ngModel)]="lane.title"
-                      (change)="onLaneTitleChange(lane.id, lane)"
-                    />
-                    <label for="title" class=""></label>
-                  </div>
-                  <div class="col-md-2 pl-0 pr-0">
-                    <button
-                      class="deleteLane"
-                      (click)="deleteLane(lane.id)"
-                      mdbBtn
-                      mdbWavesEffect
-                    >
-                      <mdb-icon fas icon="minus"></mdb-icon>
-                    </button>
-                    <button
-                      class="addCard"
-                      (click)="openCardModal(lane.id)"
-                      mdbBtn
-                      mdbWavesEffect
-                    >
-                      <mdb-icon fas icon="plus"></mdb-icon>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
-                <mdb-card-header>
-                  {{ card.title }}
-                  <div class="btn-group btnCard" mdbDropdown>
-                    <button
-                      class="cardSettings"
-                      mdbDropdownToggle
-                      mdbBtn
-                      mdbWavesEffect
-                    >
-                      <mdb-icon fas icon="cog"></mdb-icon>
-                    </button>
-                    <div class="dropdown-menu dropdown-primary">
-                      <a class="dropdown-item">Bewerk kaart</a>
-                      <a
-                        class="dropdown-item"
-                        (click)="deleteCard(lane.id, card.id)"
-                        >Verwijder kaart</a
-                      >
-                    </div>
-                  </div>
-                </mdb-card-header>
-                <mdb-card-body class="card-message">
-                  <div class="row">
-                    <div class="col-md-12">
-                        {{ card.message }}
-                    </div>
-                  </div>
-                </mdb-card-body>
-              </mdb-card>
+            <div
+              class="lane col-md-6 col-sm-6 col-xl"
+              *ngFor="let lane of board?.lanes"
+            >
+              <app-lane [board]="board" [lane]="lane"></app-lane>
             </div>
           </div>
         </mdb-card-body>

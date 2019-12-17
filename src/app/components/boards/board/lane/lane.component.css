@@ -2,44 +2,6 @@
   text-align: left;
 }
 
-.imgDiv {
-  background-image: url('../../../../assets/images/backgroundOverlay.png');
-  overflow: hidden;
-  height: max-content;
-  width: 100%;
-  text-align: center;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.toolBar {
-  margin: 10px 5px 10px 5px;
-}
-
-.row-title {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.clearCards {
-  background-color: #ffffff;
-  color: #ed5603;
-  border: 2px solid #ed5603;
-  font-size: 10px;
-  cursor: pointer;
-}
-
-.laneBtn {
-  background-color: #ffffff;
-  color: #8bd201;
-  border: 2px solid #8bd201;
-  font-size: 10px;
-  cursor: pointer;
-}
-
 .titleInput {
   margin-top: -25px;
 }
@@ -47,6 +9,13 @@
 .cardTitleInput {
   margin-right: 10px;
   width: 90%;
+}
+
+.row-title {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .md-form input[type='text']:focus:not([readonly]),
@@ -79,12 +48,6 @@
 .md-form input[type='search']:focus:not([readonly]) + label,
 .md-form textarea.md-textarea:focus:not([readonly]) + label {
   color: #8bd201;
-}
-
-.board {
-  border: 2px solid #8bd201;
-  min-height: 70vh;
-  border-radius: 10px;
 }
 
 .lane {

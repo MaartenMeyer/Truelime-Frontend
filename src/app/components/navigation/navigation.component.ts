@@ -17,10 +17,10 @@ export class NavigationComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    this.authService.currentUser.subscribe(x => {
-      this.currentUser = x;
-      console.log(x)
-      console.log(this.currentUser)
+    this.authService.currentUser.subscribe(user => {
+      this.currentUser = user;
+      console.log(user);
+      console.log(this.currentUser);
     });
   }
 
