@@ -52,10 +52,15 @@ export class LaneComponent implements OnInit {
   }
 
   onDrop(event: CdkDragDrop<any[]>) {
+
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data,
         event.previousIndex,
         event.currentIndex);
+        this.boardService
+          .updateLane(this.board.id, this.lane.id, this.lane)
+          .pipe(first())
+          .subscribe(data => {});
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
