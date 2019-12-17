@@ -63,22 +63,14 @@ export class BoardComponent implements OnInit, OnDestroy {
       .pipe(first())
       .subscribe(board => {
         this.zone.run(() => {
-          this.board = board;
-          this.changeDetector.markForCheck();
+          if (board === null) {
+            this.router.navigate(['/dashboard']);
+          } else {
+            this.board = board;
+            this.changeDetector.markForCheck();
+          }
         });
       });
-  }
-
-  onDrop(event: CdkDragDrop<any[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data,
-        event.previousIndex,
-        event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex, event.currentIndex);
-    }
   }
 
   openBoardModal() {
@@ -99,22 +91,8 @@ export class BoardComponent implements OnInit, OnDestroy {
     });
   }
 
-  openCardModal(laneId: string) {
-    this.openModal(CardModalComponent, {
-      data: { content: { boardId: this.board.id, laneId } },
-    });
-  }
-
   private openModal(component: any, modalOptions: any) {
     this.mdbModalRef = this.mdbModalService.show(component, modalOptions);
-  }
-
-  onLaneTitleChange(laneId: string, lane: Lane) {
-    console.log(lane);
-    this.boardService
-    .updateLane(this.board.id, laneId, lane)
-    .pipe(first())
-    .subscribe(data => {});
   }
 
   clearBoard() {
@@ -124,30 +102,5 @@ export class BoardComponent implements OnInit, OnDestroy {
         .pipe(first())
         .subscribe(data => {});
     }
-  }
-
-  deleteLane(laneId: string) {
-    if (confirm(`Weet u zeker dat u deze rij wilt verwijderen?`)) {
-      this.boardService
-        .deleteLane(this.board.id, laneId)
-        .pipe(first())
-        .subscribe(data => {});
-    }
-  }
-
-  deleteCard(laneId: string, cardId: string) {
-    if (confirm(`Weet u zeker dat u dit kaartje wilt verwijderen?`)) {
-      this.boardService
-      .deleteCard(this.board.id, laneId, cardId)
-      .pipe(first())
-      .subscribe(data => {});
-    }
-  }
-
-  updateCard(laneId: string, cardId: string, card: Card) {
-    this.boardService
-      .updateCard(this.board.id, laneId, cardId, card)
-      .pipe(first())
-      .subscribe(data => {});
   }
 }

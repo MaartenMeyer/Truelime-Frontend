@@ -9,13 +9,17 @@ import { BoardsComponent } from './boards.component';
 import { BoardComponent } from './board/board.component';
 import { ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LaneComponent } from './board/lane/lane.component';
+import { CardComponent } from './board/lane/card/card.component';
 
 @NgModule({
   declarations: [
     NewBoardComponent,
     MyBoardsComponent,
     BoardsComponent,
-    BoardComponent
+    BoardComponent,
+    LaneComponent,
+    CardComponent
   ],
   imports: [
     DragDropModule,

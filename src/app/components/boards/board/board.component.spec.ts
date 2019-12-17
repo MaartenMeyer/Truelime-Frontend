@@ -5,9 +5,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {MDBBootstrapModule, MDBModalRef, MDBModalService} from 'angular-bootstrap-md';
-import {ComponentLoaderFactory} from 'angular-bootstrap-md/lib/free/utils/component-loader/component-loader.factory';
+import {MDBBootstrapModule, MDBModalService} from 'angular-bootstrap-md';
 import { SignalRService } from 'src/app/services/signalr.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -15,7 +15,7 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule, MDBBootstrapModule.forRoot()],
+      imports: [ RouterTestingModule, HttpClientTestingModule, FormsModule, DragDropModule, MDBBootstrapModule.forRoot()],
       declarations: [ BoardComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [MDBModalService, SignalRService ]
