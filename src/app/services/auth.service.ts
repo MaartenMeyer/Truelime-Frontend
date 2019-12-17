@@ -32,7 +32,7 @@ export class AuthService {
       }));
   }
 
-  private isLoggedIn() : boolean {
+  private isLoggedIn(): boolean {
     return localStorage.getItem('currentUser') !== null;
   }
 
