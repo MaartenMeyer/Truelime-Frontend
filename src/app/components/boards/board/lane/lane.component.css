@@ -2,6 +2,10 @@
   text-align: left;
 }
 
+.drop-list {
+  height: 100%;
+}
+
 .titleInput {
   margin-top: -25px;
 }

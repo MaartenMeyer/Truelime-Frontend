@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
 import { Lane } from '@app/models/lane';
 import { BoardService } from '@app/services/board.service';
 import { MDBModalService, MDBModalRef } from 'angular-bootstrap-md';
 import { CardModalComponent } from '../modals/card-modal/card-modal.component';
 import { Board } from '@app/models/board';
 import { first } from 'rxjs/operators';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@angular/cdk/drag-drop';
 import { Card } from '@app/models/card';
 
 @Component({
@@ -16,14 +16,23 @@ import { Card } from '@app/models/card';
 export class LaneComponent implements OnInit {
   @Input() board: Board;
   @Input() lane: Lane;
+  connectedTo = [];
   mdbModalRef: MDBModalRef;
 
   constructor(
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
-  ) {}
+  ) {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+    for (let lane of this.board.lanes) {
+      if (lane.id !== this.lane.id) {
+        this.connectedTo.push(lane.id);
+      }
+    }
+  }
 
   openCardModal(laneId: string) {
     this.openModal(CardModalComponent, {
@@ -57,14 +66,20 @@ export class LaneComponent implements OnInit {
       moveItemInArray(event.container.data,
         event.previousIndex,
         event.currentIndex);
-        this.boardService
-          .updateLane(this.board.id, this.lane.id, this.lane)
-          .pipe(first())
-          .subscribe(data => {});
+      this.boardService
+        .updateLane(this.board.id, this.lane.id, this.lane)
+        .pipe(first())
+        .subscribe(data => {});
     } else {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex, event.currentIndex);
+      for (let lane of this.board.lanes) {
+        this.boardService
+          .updateLane(this.board.id, lane.id, lane)
+          .pipe(first())
+          .subscribe(data => {});
+      }
     }
   }
 

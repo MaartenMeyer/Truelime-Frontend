@@ -1,9 +1,10 @@
 <div
   cdkDropList
-  [id]="lane.id"
+  id="{{lane.id}}"
   [cdkDropListData]="lane.cards"
-  [cdkDropListConnectedTo]="lane.id"
+  [cdkDropListConnectedTo]="connectedTo"
   (cdkDropListDropped)="onDrop($event)"
+  class="drop-list"
 >
   <div class="md-form">
     <div class="row row-title justify-content-center">

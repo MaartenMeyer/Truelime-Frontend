@@ -50,11 +50,8 @@
           </div>
         </mdb-card-header>
         <mdb-card-body>
-          <div class="board row justify-content-center">
-            <div
-              class="lane col-md-6 col-sm-6 col-xl"
-              *ngFor="let lane of board?.lanes"
-            >
+          <div class="board row row-board justify-content-center">
+            <div class="lane col-md-6 col-sm-6 col-xl" *ngFor="let lane of board?.lanes">
               <app-lane [board]="board" [lane]="lane"></app-lane>
             </div>
           </div>
