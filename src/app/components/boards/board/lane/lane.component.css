@@ -83,6 +83,16 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.cardVote {
+  padding: 2px 2px 0 2px;
+  margin: 0;
+  float: right;
+  background-color: transparent;
+  color: #8bd201;
+  font-size: 12px;
+  cursor: pointer;
+}
+
 .deleteLane {
   padding: 2px 2px 0 2px;
   background-color: #ffffff;
