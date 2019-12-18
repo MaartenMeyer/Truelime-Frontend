@@ -33,7 +33,8 @@ describe('CardComponent', () => {
     title: 'Title',
     message: 'Message',
     author: null,
-    rating: null
+    rating: null,
+    color: 'color'
   };
 
   beforeEach(async(() => {

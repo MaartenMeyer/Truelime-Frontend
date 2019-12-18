@@ -7,6 +7,7 @@ import { Board } from '@app/models/board';
 import { first } from 'rxjs/operators';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@angular/cdk/drag-drop';
 import { Card } from '@app/models/card';
+import { CategoryModalComponent } from '../modals/category-modal/category-modal.component';
 
 @Component({
   selector: 'app-lane',
@@ -27,7 +28,7 @@ export class LaneComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let lane of this.board.lanes) {
+    for (const lane of this.board.lanes) {
       if (lane.id !== this.lane.id) {
         this.connectedTo.push(lane.id);
       }
@@ -40,8 +41,26 @@ export class LaneComponent implements OnInit {
     });
   }
 
+  openCategoryModal(laneId: string) {
+    this.openModal(CategoryModalComponent, {
+      data: { content: { boardId: this.board.id, laneId } },
+    });
+  }
+
   private openModal(component: any, modalOptions: any) {
     this.mdbModalRef = this.mdbModalService.show(component, modalOptions);
+  }
+
+  getId(lane: Lane, card: Card): string {
+    if (card.message === null) {
+      if (lane.cards.findIndex(c => c.id === card.id) === 0) {
+        return 'card';
+      } else {
+        return 'category';
+      }
+    } else {
+      return 'card';
+    }
   }
 
   onLaneTitleChange(laneId: string, lane: Lane) {
@@ -74,7 +93,7 @@ export class LaneComponent implements OnInit {
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex, event.currentIndex);
-      for (let lane of this.board.lanes) {
+      for (const lane of this.board.lanes) {
         this.boardService
           .updateLane(this.board.id, lane.id, lane)
           .pipe(first())

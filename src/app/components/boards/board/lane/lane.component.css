@@ -15,6 +15,16 @@
   width: 90%;
 }
 
+.category {
+  padding-top: 20px;
+  background-color: rgba(0,0,0,.7);
+}
+
+.categoryTitleInput {
+  margin-right: 10px;
+  width: 90%;
+}
+
 .row-title {
   display: flex;
   align-items: center;
@@ -36,7 +46,7 @@
 .md-form input[type='search']:focus:not([readonly]),
 .md-form textarea.md-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #8bd201;
-  border-bottom: 1px solid #8bd201;
+  border-bottom: 0px solid #8bd201;
   color: #8bd201;
 }
 
@@ -68,6 +78,13 @@
   z-index: 1;
 }
 
+#category {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
 mdb-card-body {
   padding: 0px 0px 0px 10px;
   margin-bottom: 10px;
@@ -87,6 +104,10 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.cardSettings:hover{
+  font-size: 13px;
+}
+
 .cardVote {
   padding: 2px 2px 0 2px;
   margin: 0;
@@ -97,10 +118,22 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.cardVote:hover{
+  font-size: 13px;
+}
+
 .deleteLane {
   padding: 2px 2px 0 2px;
   background-color: #ffffff;
   color: #ed5603;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.editLane {
+  padding: 2px 2px 0 2px;
+  background-color: #ffffff;
+  color: #8bd201;
   font-size: 10px;
   cursor: pointer;
 }

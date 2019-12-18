@@ -25,26 +25,55 @@
           mdbBtn
           mdbWavesEffect
         >
-          <mdb-icon fas icon="minus"></mdb-icon>
+          <mdb-icon fas icon="trash"></mdb-icon>
         </button>
-        <button
-          class="addCard"
-          (click)="openCardModal(lane.id)"
-          mdbBtn
-          mdbWavesEffect
-        >
-          <mdb-icon fas icon="plus"></mdb-icon>
-        </button>
+        <div class="btn-group" mdbDropdown>
+            <button
+            class="editLane"
+            mdbDropdownToggle
+            mdbBtn
+            mdbWavesEffect
+          >
+            <mdb-icon fas icon="plus"></mdb-icon>
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item"
+                (click)="openCardModal(lane.id)">Voeg kaart toe
+              </a>
+              <a class="dropdown-item"
+                (click)="openCategoryModal(lane.id)">Voeg categorie toe
+              </a>
+          </div>
+        </div>
+
       </div>
     </div>
-    <mdb-card cdkDrag id="card" *ngFor="let card of lane.cards">
-      <mdb-card-header cdkDragHandle>
+    <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
+        <mdb-card-header class="category rounded" cdkDragHandle *ngIf=!card.message>
+            <span class="md-form">
+              <input
+                mdbInput
+                type="text"
+                [(ngModel)]="card.title"
+                class="categoryTitleInput text-white text-center border-bottom-0"
+                (change)="updateCard(lane.id, card.id, card)"
+              />
+            </span>
+            <i
+              class="far fa-trash-alt cardSettings
+                mdbDropdownToggle
+                mdbBtn
+                mdbWavesEffect"
+              (click)="deleteCard(lane.id, card.id)"
+            ></i>
+          </mdb-card-header>
+      <mdb-card-header cdkDragHandle *ngIf="card.message">
         <span class="md-form">
           <input
             mdbInput
             type="text"
             [(ngModel)]="card.title"
-            class="cardTitleInput"
+            class="cardTitleInput text-center border-bottom-0"
             (change)="updateCard(lane.id, card.id, card)"
           />
         </span>
@@ -56,22 +85,23 @@
           (click)="deleteCard(lane.id, card.id)"
         ></i>
       </mdb-card-header>
-      <mdb-card-body class="card-message">
+
+      <mdb-card-body class="card-message" *ngIf="card.message">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 pl-1">
             <span class="md-form">
               <textarea
                 mdbInput
                 type="text"
                 [(ngModel)]="card.message"
-                class="md-textarea form-control"
+                class="md-textarea form-control text-center border-bottom-0 pb-0"
                 (change)="updateCard(lane.id, card.id, card)"
               ></textarea>
             </span>
           </div>
         </div>
       </mdb-card-body>
-      <mdb-card-footer cdkDragHandle>
+      <mdb-card-footer cdkDragHandle *ngIf="card.message">
         <i
           class="far fa-thumbs-up cardVote
             mdbBtn
