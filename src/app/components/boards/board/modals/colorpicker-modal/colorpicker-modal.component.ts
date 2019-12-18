@@ -14,7 +14,13 @@ export class ColorpickerModalComponent implements OnInit {
   public colors: string[] = [
     '#8bd201',
     '#ed5603',
-
+    '#31D4E8',
+    '#2B7EEB',
+    '#E8B841',
+    '#E84438',
+    '#FFFF00',
+    '#FF00FF',
+    '#808080',
   ];
   content: any;
   selectedColor = '';
