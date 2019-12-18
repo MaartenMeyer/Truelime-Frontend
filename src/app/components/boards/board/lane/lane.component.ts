@@ -25,7 +25,6 @@ export class LaneComponent implements OnInit {
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
   ) {
-
   }
 
   ngOnInit() {
@@ -131,5 +130,15 @@ export class LaneComponent implements OnInit {
       .updateCard(this.board.id, laneId, card.id, card)
       .pipe(first())
       .subscribe(data => {});
+  }
+
+  voteArray(rating: number) {
+    const arrayOfVotes = [];
+    for (let i = 1; i <= rating; i++) {
+      if (arrayOfVotes.length <= 10) {
+        arrayOfVotes.push(1);
+      }
+    }
+    return arrayOfVotes;
   }
 }

@@ -91,21 +91,17 @@ mdb-card-body {
 }
 
 .cardSettings {
-  padding: 2px 2px 0 2px;
+  padding: 0 2px 0 2px;
   margin: 0;
   float: right;
-  background-color: transparent;
+  background-color: #ffffff;
   color: #ed5603;
   font-size: 12px;
   cursor: pointer;
 }
 
-.cardSettings:hover{
-  font-size: 13px;
-}
-
 .cardVote {
-  padding: 2px 2px 0 2px;
+  padding: 0px 2px 0 2px;
   margin: 0;
   float: right;
   background-color: transparent;
@@ -114,8 +110,16 @@ mdb-card-body {
   cursor: pointer;
 }
 
-.cardVote:hover{
-  font-size: 13px;
+.fa-circle {
+  font-size: 10px;
+  padding: 0;
+  color: #8bd201;
+  margin-left: 5px;
+}
+
+.rowFooterCard {
+  align-items: center;
+  min-height: 24px;
 }
 
 .deleteLane {

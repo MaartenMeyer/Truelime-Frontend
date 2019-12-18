@@ -45,7 +45,6 @@
               </a>
           </div>
         </div>
-
       </div>
     </div>
     <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
@@ -60,10 +59,9 @@
               />
             </span>
             <i
-              class="far fa-trash-alt cardSettings
-                mdbDropdownToggle
-                mdbBtn
-                mdbWavesEffect"
+              class="far fa-trash-alt cardSettings"
+              mdbBtn
+              mdbWavesEffect
               (click)="deleteCard(lane.id, card.id)"
             ></i>
           </mdb-card-header>
@@ -78,10 +76,9 @@
           />
         </span>
         <i
-          class="far fa-trash-alt cardSettings
-            mdbDropdownToggle
-            mdbBtn
-            mdbWavesEffect"
+          class="far fa-trash-alt cardSettings"
+          mdbBtn
+          mdbWavesEffect
           (click)="deleteCard(lane.id, card.id)"
         ></i>
       </mdb-card-header>
@@ -102,13 +99,20 @@
         </div>
       </mdb-card-body>
       <mdb-card-footer cdkDragHandle *ngIf="card.message">
-        <span>Stemmen: {{card.rating}}</span>
-        <i
-          class="far fa-thumbs-up cardVote
-            mdbBtn
-            mdbWavesEffect"
-            (click)="voteCard(lane.id, card)"
-        ></i>
+        <div class="row rowFooterCard">
+          <div class="col-2"></div>
+          <div class="col-8" >
+             <i *ngFor="let vote of voteArray(card.rating)" class="fas fa-circle"></i>
+          </div>
+          <div class="col-2">
+            <i
+              class="far fa-thumbs-up cardVote"
+              mdbBtn
+              mdbWavesEffect
+              (click)="voteCard(lane.id, card)"
+            ></i>
+          </div>
+        </div>
       </mdb-card-footer>
     </mdb-card>
   </div>
