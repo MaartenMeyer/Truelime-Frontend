@@ -56,7 +56,7 @@
                 type="text"
                 [(ngModel)]="card.title"
                 class="categoryTitleInput text-white text-center border-bottom-0"
-                (change)="updateCard(lane.id, card.id, card)"
+                (change)="updateCard(lane.id, card)"
               />
             </span>
             <i
@@ -74,7 +74,7 @@
             type="text"
             [(ngModel)]="card.title"
             class="cardTitleInput text-center border-bottom-0"
-            (change)="updateCard(lane.id, card.id, card)"
+            (change)="updateCard(lane.id, card)"
           />
         </span>
         <i
