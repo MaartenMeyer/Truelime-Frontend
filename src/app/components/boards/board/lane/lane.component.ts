@@ -19,6 +19,7 @@ export class LaneComponent implements OnInit {
   @Input() lane: Lane;
   connectedTo = [];
   mdbModalRef: MDBModalRef;
+  selectedVote = 0;
 
   constructor(
     private boardService: BoardService,
@@ -111,9 +112,23 @@ export class LaneComponent implements OnInit {
     }
   }
 
-  updateCard(laneId: string, cardId: string, card: Card) {
+  updateCard(laneId: string, card: Card) {
     this.boardService
-      .updateCard(this.board.id, laneId, cardId, card)
+      .updateCard(this.board.id, laneId, card.id, card)
+      .pipe(first())
+      .subscribe(data => {});
+  }
+
+  voteCard(laneId: string, card: Card) {
+    if (this.selectedVote === 0) {
+      this.selectedVote = 1;
+      card.rating += 1;
+    } else if (this.selectedVote === 1) {
+      card.rating -= 1;
+      this.selectedVote = 0;
+    }
+    this.boardService
+      .updateCard(this.board.id, laneId, card.id, card)
       .pipe(first())
       .subscribe(data => {});
   }

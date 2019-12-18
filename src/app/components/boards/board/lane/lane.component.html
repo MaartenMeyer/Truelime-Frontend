@@ -95,17 +95,19 @@
                 type="text"
                 [(ngModel)]="card.message"
                 class="md-textarea form-control text-center border-bottom-0 pb-0"
-                (change)="updateCard(lane.id, card.id, card)"
+                (change)="updateCard(lane.id, card)"
               ></textarea>
             </span>
           </div>
         </div>
       </mdb-card-body>
       <mdb-card-footer cdkDragHandle *ngIf="card.message">
+        <span>Stemmen: {{card.rating}}</span>
         <i
           class="far fa-thumbs-up cardVote
             mdbBtn
             mdbWavesEffect"
+            (click)="voteCard(lane.id, card)"
         ></i>
       </mdb-card-footer>
     </mdb-card>

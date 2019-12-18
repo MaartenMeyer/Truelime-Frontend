@@ -42,6 +42,10 @@ h2 {
   padding-right: 0px;
 }
 
+.spinner-border {
+  color: #8bd201;
+}
+
 .boardRemove {
   color: #ed5603;
   border: 2px solid #ed5603;
