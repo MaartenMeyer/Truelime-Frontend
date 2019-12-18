@@ -87,6 +87,10 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.cardSettings:hover{
+  font-size: 13px;
+}
+
 .cardVote {
   padding: 2px 2px 0 2px;
   margin: 0;
@@ -95,6 +99,10 @@ mdb-card-body {
   color: #8bd201;
   font-size: 12px;
   cursor: pointer;
+}
+
+.cardVote:hover{
+  font-size: 13px;
 }
 
 .deleteLane {
