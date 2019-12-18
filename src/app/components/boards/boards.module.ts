@@ -11,6 +11,7 @@ import { ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LaneComponent } from './board/lane/lane.component';
 import { CardComponent } from './board/lane/card/card.component';
+import { CategoryModalComponent } from './board/modals/category-modal/category-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CardComponent } from './board/lane/card/card.component';
     BoardsComponent,
     BoardComponent,
     LaneComponent,
-    CardComponent
+    CardComponent,
+    CategoryModalComponent
   ],
   imports: [
     DragDropModule,

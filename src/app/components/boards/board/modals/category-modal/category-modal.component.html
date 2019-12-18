@@ -2,21 +2,30 @@
   <button type="button" class="close pull-right" aria-label="Close" (click)="mdbModalRef.hide()">
     <span aria-hidden="true">×</span>
   </button>
-  <h4 class="modal-title w-100" id="myModalLabel">Kolom toevoegen</h4>
+  <h4 class="modal-title w-100" id="myModalLabel">Categorie toevoegen</h4>
 </div>
 <div class="modal-body">
-  <form (ngSubmit)="submitLane(content.boardId)" [formGroup]="laneForm">
+  <form (ngSubmit)="submitCategory(content.boardId, content.laneId)" [formGroup]="categoryForm">
     <div class="md-form">
-      <input mdbInput type="text" id="title" class="form-control" formControlName="title" [ngClass]="{
+      <input
+        mdbInput
+        type="text"
+        id="title"
+        class="form-control"
+        formControlName="title"
+        [ngClass]="{
              'is-invalid': form.title.invalid && ((form.title.dirty || form.title.touched) || submitted)
-            }" required>
+            }"
+        required
+      >
       <label for="title" class="">Titel</label>
       <div *ngIf="(form.title.invalid && (form.title.touched)) || submitted" class="invalid-feedback">
-          <div *ngIf="form.title?.errors?.required">Titel is verplicht!</div>
+        <div *ngIf="form.title?.errors?.required">Titel is verplicht!</div>
       </div>
     </div>
     <div class="btnDiv">
-      <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>Aanmaken</button>
+      <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>Toevoegen</button>
     </div>
   </form>
 </div>
+
