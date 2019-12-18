@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LaneComponent } from './board/lane/lane.component';
 import { CardComponent } from './board/lane/card/card.component';
 import { CategoryModalComponent } from './board/modals/category-modal/category-modal.component';
+import { ColorpickerModalComponent } from './board/modals/colorpicker-modal/colorpicker-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CategoryModalComponent } from './board/modals/category-modal/category-m
     BoardComponent,
     LaneComponent,
     CardComponent,
-    CategoryModalComponent
+    CategoryModalComponent,
+    ColorpickerModalComponent
   ],
   imports: [
     DragDropModule,

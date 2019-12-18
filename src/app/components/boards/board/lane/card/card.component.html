@@ -16,6 +16,21 @@
         mdbWavesEffect"
       (click)="deleteCard(lane.id, card.id)"
     ></i>
+    <div class="btn-group" mdbDropdown>
+        <button
+        class="cardSettings"
+        mdbDropdownToggle
+        mdbBtn
+        mdbWavesEffect
+      >
+        <mdb-icon fas icon="cog"></mdb-icon>
+      </button>
+      <div class="dropdown-menu dropdown-primary">
+          <a class="dropdown-item"
+            (click)="openColorModal()">Kies kleur
+          </a>
+      </div>
+    </div>
   </mdb-card-header>
   <mdb-card-body class="card-message" *ngIf="card.message !== ''">
     <div class="row">

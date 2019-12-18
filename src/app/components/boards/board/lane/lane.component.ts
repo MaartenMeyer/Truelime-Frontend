@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@angular/cdk/drag-drop';
 import { Card } from '@app/models/card';
 import { CategoryModalComponent } from '../modals/category-modal/category-modal.component';
+import { ColorpickerModalComponent } from '../modals/colorpicker-modal/colorpicker-modal.component';
 
 @Component({
   selector: 'app-lane',
@@ -44,6 +45,12 @@ export class LaneComponent implements OnInit {
   openCategoryModal(laneId: string) {
     this.openModal(CategoryModalComponent, {
       data: { content: { boardId: this.board.id, laneId } },
+    });
+  }
+
+  openColorModal(laneId: string, card: Card) {
+    this.openModal(ColorpickerModalComponent, {
+      data: { content: { boardId: this.board.id, laneId, card } },
     });
   }
 

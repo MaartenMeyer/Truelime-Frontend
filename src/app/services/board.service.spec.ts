@@ -22,8 +22,8 @@ describe('BoardService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify()
-  })
+    httpMock.verify();
+  });
 
   it('should be created', () => {
     expect(boardService).toBeTruthy();
@@ -140,5 +140,5 @@ describe('BoardService', () => {
         message: `Lane deleted`
       });
     });
-  })
+  });
 });

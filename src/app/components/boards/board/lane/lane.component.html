@@ -48,7 +48,7 @@
       </div>
     </div>
     <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
-        <mdb-card-header class="category rounded" cdkDragHandle *ngIf=!card.message>
+        <mdb-card-header class="category rounded" cdkDragHandle *ngIf=!card.message [ngStyle]="{'background-color': card.color}">
             <span class="md-form">
               <input
                 mdbInput
@@ -65,7 +65,7 @@
               (click)="deleteCard(lane.id, card.id)"
             ></i>
           </mdb-card-header>
-      <mdb-card-header cdkDragHandle *ngIf="card.message">
+      <mdb-card-header cdkDragHandle *ngIf="card.message" [ngStyle]="{'background-color': card.color}">
         <span class="md-form">
           <input
             mdbInput
@@ -81,6 +81,21 @@
           mdbWavesEffect
           (click)="deleteCard(lane.id, card.id)"
         ></i>
+        <div class="btn-group" mdbDropdown>
+            <button
+            class="cardSettings"
+            mdbDropdownToggle
+            mdbBtn
+            mdbWavesEffect
+          >
+            <mdb-icon fas icon="cog"></mdb-icon>
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+              <a class="dropdown-item"
+                (click)="openColorModal(lane.id, card)">Kies kleur
+              </a>
+          </div>
+        </div>
       </mdb-card-header>
 
       <mdb-card-body class="card-message" *ngIf="card.message">

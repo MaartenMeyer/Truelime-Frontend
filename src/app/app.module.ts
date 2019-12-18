@@ -19,6 +19,7 @@ import { CardModalComponent } from './components/boards/board/modals/card-modal/
 import { LaneModalComponent } from './components/boards/board/modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './components/boards/board/modals/board-modal/board-modal.component';
 import { CategoryModalComponent } from './components/boards/board/modals/category-modal/category-modal.component';
+import { ColorpickerModalComponent } from './components/boards/board/modals/colorpicker-modal/colorpicker-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { CategoryModalComponent } from './components/boards/board/modals/categor
     SettingsComponent,
     CardModalComponent,
     LaneModalComponent,
-    BoardModalComponent,
+    BoardModalComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -45,7 +46,8 @@ import { CategoryModalComponent } from './components/boards/board/modals/categor
     CardModalComponent,
     LaneModalComponent,
     BoardModalComponent,
-    CategoryModalComponent
+    CategoryModalComponent,
+    ColorpickerModalComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [

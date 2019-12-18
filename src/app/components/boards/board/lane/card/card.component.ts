@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Board } from '@app/models/board';
 import { Lane } from '@app/models/lane';
 import { BoardService } from '@app/services/board.service';
-import { MDBModalService } from 'angular-bootstrap-md';
+import { MDBModalService, MDBModalRef } from 'angular-bootstrap-md';
 import { first } from 'rxjs/operators';
 import { Card } from '@app/models/card';
+import { ColorpickerModalComponent } from '../../modals/colorpicker-modal/colorpicker-modal.component';
 
 @Component({
   selector: 'app-card',
@@ -15,6 +16,7 @@ export class CardComponent implements OnInit {
   @Input() board: Board;
   @Input() lane: Lane;
   @Input() card: Card;
+  mdbModalRef: MDBModalRef;
 
   constructor(
     private boardService: BoardService,
@@ -22,6 +24,16 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  openColorModal() {
+    this.openModal(ColorpickerModalComponent, {
+      data: { content: { boardId: this.board.id, laneId: this.lane.id, card: this.card } },
+    });
+  }
+
+  private openModal(component: any, modalOptions: any) {
+    this.mdbModalRef = this.mdbModalService.show(component, modalOptions);
   }
 
   deleteCard(laneId: string, cardId: string) {
