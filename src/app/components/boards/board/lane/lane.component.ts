@@ -59,7 +59,7 @@ export class LaneComponent implements OnInit {
   }
 
   getId(lane: Lane, card: Card): string {
-    if (card.message === null) {
+    if (card.type === 'category') {
       if (lane.cards.findIndex(c => c.id === card.id) === 0) {
         return 'card';
       } else {
@@ -68,6 +68,10 @@ export class LaneComponent implements OnInit {
     } else {
       return 'card';
     }
+  }
+
+  isCard(card: Card): boolean {
+    return card.type === 'card';
   }
 
   onLaneTitleChange(laneId: string, lane: Lane) {

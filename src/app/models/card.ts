@@ -6,6 +6,7 @@ export class Card {
     public author: User,
     public title: string,
     public message: string,
+    public type: string,
     public rating: number,
     public color: string
   ) {

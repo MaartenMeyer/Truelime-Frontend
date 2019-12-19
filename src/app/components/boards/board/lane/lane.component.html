@@ -48,7 +48,7 @@
       </div>
     </div>
     <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
-        <mdb-card-header class="category rounded" cdkDragHandle *ngIf=!card.message [ngStyle]="{'background-color': card.color}">
+        <mdb-card-header class="category rounded" cdkDragHandle *ngIf="!isCard(card)" [ngStyle]="{'background-color': card.color}">
             <span class="md-form">
               <input
                 mdbInput
@@ -65,7 +65,7 @@
               (click)="deleteCard(lane.id, card.id)"
             ></i>
           </mdb-card-header>
-      <mdb-card-header cdkDragHandle *ngIf="card.message" [ngStyle]="{'background-color': card.color}">
+      <mdb-card-header cdkDragHandle *ngIf="isCard(card)" [ngStyle]="{'background-color': card.color}">
         <div class="col-md-11 pl-0 pr-0">
           <span class="md-form">
           <input
@@ -105,7 +105,7 @@
         </div>
       </mdb-card-header>
 
-      <mdb-card-body class="card-message" *ngIf="card.message">
+      <mdb-card-body class="card-message" *ngIf="isCard(card)">
         <div class="row">
           <div class="col-md-12 pl-1">
             <span class="md-form">
@@ -120,7 +120,7 @@
           </div>
         </div>
       </mdb-card-body>
-      <mdb-card-footer cdkDragHandle *ngIf="card.message">
+      <mdb-card-footer cdkDragHandle *ngIf="isCard(card)">
         <div class="row rowFooterCard">
           <div class="col-2"></div>
           <div class="col-8" >

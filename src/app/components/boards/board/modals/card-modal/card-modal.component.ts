@@ -23,7 +23,8 @@ export class CardModalComponent implements OnInit {
   ngOnInit() {
     this.cardForm = this.formBuilder.group({
       title: ['', [Validators.required]],
-      message: ['', [Validators.required]]
+      message: ['', [Validators.required]],
+      type: ['card']
     });
   }
 
