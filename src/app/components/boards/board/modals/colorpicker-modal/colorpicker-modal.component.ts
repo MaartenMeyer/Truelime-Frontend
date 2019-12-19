@@ -11,11 +11,7 @@ import { Card } from '@app/models/card';
   styleUrls: ['./colorpicker-modal.component.css']
 })
 export class ColorpickerModalComponent implements OnInit {
-  public colors: string[] = [
-    '#8bd201',
-    '#ed5603',
-
-  ];
+  public colors: string[] = [];
   content: any;
   selectedColor = '';
   card: Card;
@@ -26,6 +22,7 @@ export class ColorpickerModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.colors = this.content.colors;
     this.card = this.content.card;
     this.selectedColor = this.content.card.color;
   }

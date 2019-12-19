@@ -23,6 +23,7 @@ describe('BoardModalComponent', () => {
     owner: null,
     participants: null,
     lanes: null,
+    colors: null
   };
 
   beforeEach(async(() => {
@@ -41,10 +42,11 @@ describe('BoardModalComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BoardModalComponent);
     component = fixture.componentInstance;
-    component.content = { title: board.title, description: board.description };
+    component.content = { board };
     component.boardForm = formBuilder.group({
       title: [board.title, [Validators.required]],
       description: [board.description, [Validators.required]],
+      colors: [board.colors]
     });
     fixture.detectChanges();
   });

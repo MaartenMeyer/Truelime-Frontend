@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MDBModalRef } from 'angular-bootstrap-md';
 import { BoardService } from '@app/services/board.service';
 import { first } from 'rxjs/operators';
+import { Board } from '@app/models/board';
 
 @Component({
   selector: 'app-board-modal',
@@ -13,6 +14,8 @@ export class BoardModalComponent implements OnInit {
   content: any;
   boardForm: FormGroup;
   submitted = false;
+  colors: string[] = ['#FCFF33', '#F00101', '#1BF001', '#999999', '#123456'];
+  selectedColors: string[] = [];
 
   constructor(
     public mdbModalRef: MDBModalRef,
@@ -22,13 +25,33 @@ export class BoardModalComponent implements OnInit {
 
   ngOnInit() {
     this.boardForm = this.formBuilder.group({
-      title: [this.content.title, [Validators.required]],
-      description: [this.content.description, [Validators.required]],
+      title: [this.content.board.title, [Validators.required]],
+      description: [this.content.board.description, [Validators.required]],
+      colors: []
     });
+    this.content.board.colors.forEach(element => {
+      this.selectedColors.push(element)
+    });;
   }
 
   get form() {
     return this.boardForm.controls;
+  }
+
+  toggleColor(color: string) {
+    if (this.selectedColors.includes(color)) {
+      this.selectedColors.splice(this.selectedColors.indexOf(color), 1 );
+    } else {
+      this.selectedColors.push(color);
+    }
+  }
+
+  getId(color: string) {
+    if (this.selectedColors.includes(color)) {
+      return 'selected';
+    } else {
+      return 'color';
+    }
   }
 
   updateBoard() {
@@ -36,8 +59,9 @@ export class BoardModalComponent implements OnInit {
     if (this.boardForm.invalid) {
       return;
     }
+    this.boardForm.value.colors = this.selectedColors;
     this.boardService
-      .updateBoard(this.content.boardId, this.boardForm.value)
+      .updateBoard(this.content.board.id, this.boardForm.value)
       .pipe(first())
       .subscribe(data => {
         this.mdbModalRef.hide();

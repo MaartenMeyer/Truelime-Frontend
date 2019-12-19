@@ -77,9 +77,7 @@ export class BoardComponent implements OnInit, OnDestroy {
     this.openModal(BoardModalComponent, {
       data: {
         content: {
-          boardId: this.board.id,
-          title: this.board.title,
-          description: this.board.description,
+          board: this.board
         },
       },
     });

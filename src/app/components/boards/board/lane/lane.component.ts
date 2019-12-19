@@ -50,7 +50,7 @@ export class LaneComponent implements OnInit {
 
   openColorModal(laneId: string, card: Card) {
     this.openModal(ColorpickerModalComponent, {
-      data: { content: { boardId: this.board.id, laneId, card } },
+      data: { content: { boardId: this.board.id, colors: this.board.colors, laneId, card } },
     });
   }
 

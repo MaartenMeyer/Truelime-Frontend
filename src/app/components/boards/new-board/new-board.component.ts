@@ -19,7 +19,8 @@ export class NewBoardComponent implements OnInit {
   ngOnInit() {
     this.boardForm = this.formBuilder.group({
       title: ['', [Validators.required]],
-      description: ['', [Validators.required]]
+      description: ['', [Validators.required]],
+      colors: [['#FCFF33', '#F00101', '#1BF001']]
     });
   }
 

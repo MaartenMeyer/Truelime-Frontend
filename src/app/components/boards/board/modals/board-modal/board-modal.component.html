@@ -59,6 +59,12 @@
         </div>
       </div>
     </div>
+    <div class="row justify-content-center"><h4 class="modal-title">Kleuren voor kaarten selecteren</h4></div>
+    <div class="row row-colors justify-content-center">
+      <div *ngFor="let color of colors">
+          <div [attr.id]="getId(color)" (click)="toggleColor(color)" class="circle" [ngStyle]="{'background': color}"></div>
+      </div>
+    </div>
     <div class="btnDiv">
       <button mdbBtn class="submitBtn" type="submit" mdbWavesEffect>
         Opslaan
