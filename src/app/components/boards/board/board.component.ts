@@ -15,6 +15,8 @@ import { SignalRService } from 'src/app/services/signalr.service';
 import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './modals/board-modal/board-modal.component';
+import { AuthService } from '@app/services/auth.service';
+import { User } from '@app/models/user';
 
 @Component({
   selector: 'app-board',
@@ -25,6 +27,7 @@ import { BoardModalComponent } from './modals/board-modal/board-modal.component'
 export class BoardComponent implements OnInit, OnDestroy {
   mdbModalRef: MDBModalRef;
   board: Board;
+  currentUser: User;
   private signalRSubscription: Subscription;
 
   constructor(
@@ -34,8 +37,10 @@ export class BoardComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private signalrService: SignalRService,
     private changeDetector: ChangeDetectorRef,
-    private zone: NgZone
+    private zone: NgZone,
+    private authenticationService: AuthService
   ) {
+    this.currentUser = this.authenticationService.currentUserValue;
     this.signalRSubscription = this.signalrService
       .getMessage()
       .subscribe(message => {
@@ -51,6 +56,10 @@ export class BoardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.signalRSubscription.unsubscribe();
+  }
+
+  isAuthorized(): boolean {
+    return this.currentUser.id === this.board.owner.id;
   }
 
   loadBoard() {
