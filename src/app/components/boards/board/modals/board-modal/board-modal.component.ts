@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MDBModalRef } from 'angular-bootstrap-md';
 import { BoardService } from '@app/services/board.service';
 import { first } from 'rxjs/operators';
-import { Board } from '@app/models/board';
 
 @Component({
   selector: 'app-board-modal',
@@ -14,7 +13,7 @@ export class BoardModalComponent implements OnInit {
   content: any;
   boardForm: FormGroup;
   submitted = false;
-  colors: string[] = ['#FCFF33', '#F00101', '#1BF001', '#999999', '#123456'];
+  colors: string[] = ['#f7f7f7', '#f44336', '#ff6f00', '#ffee58', '#ce93d8', '#8c9eff', '#81d4fa', '#b2ff59', '#8bd201'];
   selectedColors: string[] = [];
 
   constructor(
@@ -29,9 +28,11 @@ export class BoardModalComponent implements OnInit {
       description: [this.content.board.description, [Validators.required]],
       colors: []
     });
-    this.content.board.colors.forEach(element => {
-      this.selectedColors.push(element)
-    });;
+    if (this.content.board.colors !== null) {
+      this.content.board.colors.forEach(element => {
+        this.selectedColors.push(element);
+      });
+    }
   }
 
   get form() {

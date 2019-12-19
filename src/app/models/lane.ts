@@ -4,7 +4,7 @@ export class Lane {
   constructor(
     public id: string,
     public title: string,
-    public cards: [Card]
+    public cards: Card[]
   ) {
   }
 }

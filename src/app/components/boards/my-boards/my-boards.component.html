@@ -1,6 +1,21 @@
 <div class="imgDiv">
   <div class="container">
     <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-8 col-xs-12 col-offset-3 justify-content-center">
+          <mdb-card class="myBoardsCard">
+              <div class="justify-content-center">
+                  <button
+                  class="dashBtn btn-lg"
+                  mdbBtn
+                  mdbWavesEffect
+                  routerLink="/boards/newboard"
+                >
+                Nieuw bord
+                  <mdb-icon fas icon="plus"></mdb-icon>
+                </button>
+              </div>
+            </mdb-card>
+      </div>
       <div class="col-12 col-offset-3 pl-0 pr-0 justify-content-center">
         <span
           *ngIf="loading"
@@ -34,14 +49,6 @@
             </div>
           </div>
         </mdb-card>
-
-        <mdb-card>
-          <div class="justify-content-center routeCreateBoard" routerLink="/boards/newboard">
-            Maak een nieuw bord aan
-          </div>
-        </mdb-card>
-
-
       </div>
     </div>
   </div>

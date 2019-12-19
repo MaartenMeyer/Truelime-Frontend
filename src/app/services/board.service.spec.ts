@@ -60,7 +60,8 @@ describe('BoardService', () => {
       description: 'Description',
       lanes: [lane],
       owner: null,
-      participants: null
+      participants: null,
+      colors: ['#999999']
     };
 
     it('createBoard() should create board', () => {

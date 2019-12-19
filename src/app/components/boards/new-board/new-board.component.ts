@@ -19,8 +19,7 @@ export class NewBoardComponent implements OnInit {
   ngOnInit() {
     this.boardForm = this.formBuilder.group({
       title: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      colors: [['#FCFF33', '#F00101', '#1BF001']]
+      description: ['', [Validators.required]]
     });
   }
 
@@ -35,9 +34,8 @@ export class NewBoardComponent implements OnInit {
     }
     this.boardService.createBoard(this.boardForm.value)
       .pipe(first()).subscribe(data => {
-        console.log(data)
         this.router.navigate([`/boards/board/${data.id}`]);
-        
+
     });
   }
 

@@ -26,6 +26,7 @@ describe('LaneComponent', () => {
     owner: null,
     participants: null,
     lanes: [lane],
+    colors: ['#999999']
   };
 
   beforeEach(async(() => {

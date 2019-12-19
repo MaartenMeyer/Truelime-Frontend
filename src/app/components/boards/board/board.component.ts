@@ -10,15 +10,11 @@ import { Board } from '../../../models/board';
 import { BoardService } from '../../../services/board.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { CardModalComponent } from './modals/card-modal/card-modal.component';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { SignalRService } from 'src/app/services/signalr.service';
 import { Subscription } from 'rxjs';
 import { LaneModalComponent } from './modals/lane-modal/lane-modal.component';
 import { BoardModalComponent } from './modals/board-modal/board-modal.component';
-import { Lane } from '@app/models/lane';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import {Card} from '@app/models/card';
 
 @Component({
   selector: 'app-board',
