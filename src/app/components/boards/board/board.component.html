@@ -10,7 +10,7 @@
               </div>
               <div class="row justify-content-center text-center">
                 <h6>
-                  {{ board?.description }} | {{ board?.owner }} |
+                  {{ board?.description }} | {{ board?.owner.username }} |
                   {{ board?.participants }}
                 </h6>
               </div>
@@ -18,6 +18,7 @@
             <div class="col-md-4 pl-0 pr-0">
               <div class="row justify-content-center">
                 <button
+                  *ngIf="isAuthorized()"
                   mdbBtn
                   mdbWavesEffect
                   type="button"
@@ -27,6 +28,7 @@
                   <mdb-icon fas icon="eraser"></mdb-icon>
                 </button>
                 <button
+                  *ngIf="isAuthorized()"
                   mdbBtn
                   mdbWavesEffect
                   type="button"
