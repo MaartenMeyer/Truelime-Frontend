@@ -36,7 +36,8 @@ describe('BoardService', () => {
       message: 'Message',
       author: null,
       rating: 1,
-      color: 'Color'
+      color: 'Color',
+      type: 'card'
     };
     const card2: Card = {
       id: 'card-2',
@@ -44,7 +45,8 @@ describe('BoardService', () => {
       message: 'Message',
       author: null,
       rating: 2,
-      color: 'Color'
+      color: 'Color',
+      type: 'card'
     };
 
     const lane: Lane = {

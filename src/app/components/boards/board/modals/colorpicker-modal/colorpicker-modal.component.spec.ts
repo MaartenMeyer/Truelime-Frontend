@@ -15,7 +15,8 @@ describe('ColorpickerModalComponent', () => {
     message: 'Message',
     author: null,
     rating: 1,
-    color: '#999999'
+    color: '#999999',
+    type: 'card'
   };
 
   beforeEach(async(() => {
