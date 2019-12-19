@@ -47,7 +47,7 @@
 .md-form textarea.md-textarea:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 #8bd201;
   border-bottom: 0px solid #8bd201;
-  color: #8bd201;
+  color: black;
 }
 
 .md-form input[type='text']:focus:not([readonly]) + label,
@@ -98,6 +98,7 @@ mdb-card-body {
   color: #ed5603;
   font-size: 12px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .cardVote {
@@ -144,4 +145,26 @@ mdb-card-body {
   color: #8bd201;
   font-size: 10px;
   cursor: pointer;
+}
+
+.deleteCard {
+  padding: 2px 2px 0 2px;
+  background-color: #ffffff;
+  color: #ed5603;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.editCard {
+  padding: 2px 2px 0 2px;
+  background-color: #ffffff;
+  color: #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.btnCard{
+  float: right;
+  margin-top: -30px;
+  margin-right: 5px;
 }
