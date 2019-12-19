@@ -7,8 +7,9 @@ export class Board {
     public owner: User,
     public title: string,
     public description: string,
-    public participants: [string],
-    public lanes: [Lane]
+    public participants: string[],
+    public lanes: Lane[],
+    public colors: string[]
   ) {
   }
 }

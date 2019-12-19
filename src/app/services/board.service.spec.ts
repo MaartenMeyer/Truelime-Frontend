@@ -22,8 +22,8 @@ describe('BoardService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify()
-  })
+    httpMock.verify();
+  });
 
   it('should be created', () => {
     expect(boardService).toBeTruthy();
@@ -60,7 +60,8 @@ describe('BoardService', () => {
       description: 'Description',
       lanes: [lane],
       owner: null,
-      participants: null
+      participants: null,
+      colors: ['#999999']
     };
 
     it('createBoard() should create board', () => {
@@ -140,5 +141,5 @@ describe('BoardService', () => {
         message: `Lane deleted`
       });
     });
-  })
+  });
 });

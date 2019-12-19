@@ -22,6 +22,7 @@ describe('CardComponent', () => {
     owner: null,
     participants: null,
     lanes: null,
+    colors: ['#999999']
   };
   const lane: Lane = {
     id: '1',
