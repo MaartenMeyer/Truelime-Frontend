@@ -34,7 +34,9 @@ export class NewBoardComponent implements OnInit {
     }
     this.boardService.createBoard(this.boardForm.value)
       .pipe(first()).subscribe(data => {
-        this.router.navigate(['/dashboard']);
+        console.log(data)
+        this.router.navigate([`/boards/board/${data.id}`]);
+        
     });
   }
 
