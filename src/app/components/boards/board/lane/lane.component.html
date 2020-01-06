@@ -21,6 +21,7 @@
       <div class="col-md-2 pl-0 pr-0">
         <button
           class="deleteLane"
+          *ngIf="isAuthorized()"
           (click)="deleteLane(lane.id)"
           mdbBtn
           mdbWavesEffect
@@ -105,15 +106,16 @@
         </div>
       </mdb-card-header>
 
-      <mdb-card-body class="card-message" *ngIf="isCard(card)">
+      <mdb-card-body cdkDragHandle class="card-message" *ngIf="isCard(card)">
         <div class="row">
           <div class="col-md-12 pl-1">
             <span class="md-form">
               <textarea
+                autosize
                 mdbInput
                 type="text"
                 [(ngModel)]="card.message"
-                class="md-textarea form-control text-center border-bottom-0 pb-0"
+                class="md-textarea md-textarea-auto form-control text-center border-bottom-0 pb-0"
                 (change)="updateCard(lane.id, card)"
               ></textarea>
             </span>

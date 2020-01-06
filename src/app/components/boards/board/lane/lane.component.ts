@@ -9,6 +9,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@a
 import { Card } from '@app/models/card';
 import { CategoryModalComponent } from '../modals/category-modal/category-modal.component';
 import { ColorpickerModalComponent } from '../modals/colorpicker-modal/colorpicker-modal.component';
+import {User} from '@app/models/user';
+import {AuthService} from '@app/services/auth.service';
 
 @Component({
   selector: 'app-lane',
@@ -21,11 +23,14 @@ export class LaneComponent implements OnInit {
   connectedTo = [];
   mdbModalRef: MDBModalRef;
   selectedVote = 0;
+  currentUser: User;
 
   constructor(
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
+    private authenticationService: AuthService
   ) {
+    this.currentUser = this.authenticationService.currentUserValue;
   }
 
   ngOnInit() {
@@ -151,5 +156,9 @@ export class LaneComponent implements OnInit {
       }
     }
     return arrayOfVotes;
+  }
+
+  isAuthorized(): boolean {
+    return this.currentUser === null ? false : this.currentUser.id === this.board.owner.id;
   }
 }

@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {AutosizeModule} from 'ngx-autosize';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,7 @@ import { ColorpickerModalComponent } from './components/boards/board/modals/colo
     BrowserModule,
     BoardsModule,
     HttpClientModule,
+    AutosizeModule,
     ReactiveFormsModule,
     AppRoutingModule,
   ],

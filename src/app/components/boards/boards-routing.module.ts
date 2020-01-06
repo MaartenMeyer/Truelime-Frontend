@@ -10,10 +10,10 @@ import {AuthGuard} from '../../guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard], children: [
+  { path: 'boards', component: BoardsComponent, children: [
     { path: '', redirectTo: 'myboards', pathMatch: 'full' },
-    { path: 'myboards', component: MyBoardsComponent },
-    { path: 'newboard', component: NewBoardComponent },
+    { path: 'myboards', component: MyBoardsComponent, canActivate: [AuthGuard] },
+    { path: 'newboard', component: NewBoardComponent, canActivate: [AuthGuard] },
     { path: 'board/:id', component: BoardComponent, resolve: { board: BoardResolver }},
     { path: '**', redirectTo: 'myboards' }
     ]

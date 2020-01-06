@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {AutosizeModule} from 'ngx-autosize';
 
 import { BoardsRoutingModule } from './boards-routing.module';
 import { NewBoardComponent } from './new-board/new-board.component';
@@ -30,6 +31,7 @@ import { ColorpickerModalComponent } from './board/modals/colorpicker-modal/colo
     CommonModule,
     BoardsRoutingModule,
     ButtonsModule,
+    AutosizeModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
