@@ -30,3 +30,15 @@ mdb-card {
   top: -15%;
   transform: translate(-50%, 15%);
 }
+
+.optionBtn {
+  /*background-color: #8bd201;*/
+  /*color: #ffffff;*/
+  background-color: #ffffff;
+  color: #8bd201;
+  border: 2px solid #8bd201;
+  padding: 14px 28px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 10px;
+}

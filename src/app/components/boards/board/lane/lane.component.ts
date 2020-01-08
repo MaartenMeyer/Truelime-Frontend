@@ -151,9 +151,7 @@ export class LaneComponent implements OnInit {
   voteArray(rating: number) {
     const arrayOfVotes = [];
     for (let i = 1; i <= rating; i++) {
-      if (arrayOfVotes.length <= 10) {
-        arrayOfVotes.push(1);
-      }
+      arrayOfVotes.push(1);
     }
     return arrayOfVotes;
   }

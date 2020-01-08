@@ -21,6 +21,7 @@ import { LaneModalComponent } from './components/boards/board/modals/lane-modal/
 import { BoardModalComponent } from './components/boards/board/modals/board-modal/board-modal.component';
 import { CategoryModalComponent } from './components/boards/board/modals/category-modal/category-modal.component';
 import { ColorpickerModalComponent } from './components/boards/board/modals/colorpicker-modal/colorpicker-modal.component';
+import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ColorpickerModalComponent } from './components/boards/board/modals/colo
     SettingsComponent,
     CardModalComponent,
     LaneModalComponent,
-    BoardModalComponent
+    BoardModalComponent,
+    ResetPasswordComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),

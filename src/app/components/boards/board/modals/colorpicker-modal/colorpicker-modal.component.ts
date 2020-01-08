@@ -29,6 +29,11 @@ export class ColorpickerModalComponent implements OnInit {
 
   toggleColor(color: string) {
     this.selectedColor = color;
+    this.card.color = this.selectedColor;
+    this.boardService.updateCard(this.content.boardId, this.content.laneId, this.content.card.id, this.card)
+      .pipe(first()).subscribe(data => {
+      this.mdbModalRef.hide();
+    });
   }
 
   getId(color: string) {
@@ -37,13 +42,5 @@ export class ColorpickerModalComponent implements OnInit {
     } else {
       return 'color';
     }
-  }
-
-  changeColor() {
-    this.card.color = this.selectedColor;
-    this.boardService.updateCard(this.content.boardId, this.content.laneId, this.content.card.id, this.card)
-      .pipe(first()).subscribe(data => {
-        this.mdbModalRef.hide();
-    });
   }
 }

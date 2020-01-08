@@ -10,11 +10,6 @@
   margin-top: -25px;
 }
 
-.cardTitleInput {
-  margin-right: 10px;
-  width: 90%;
-}
-
 .category {
   padding-top: 20px;
   background-color: rgba(0,0,0,.7);
@@ -86,11 +81,19 @@
 }
 
 mdb-card-body {
+  border-radius: 4px;
   padding: 0 0 0 10px;
 }
 
-.md-form textarea.md-textarea {
+textarea.md-textarea-auto {
+  resize: none;
+}
+
+.md-form textarea.md-textarea.md-textarea-auto {
   overflow-y: hidden !important;
+  margin-left: 35px;
+  margin-top: 25px;
+  padding-top: 0;
 }
 
 .cardSettings {
@@ -105,9 +108,7 @@ mdb-card-body {
 }
 
 .cardVote {
-  padding: 0px 2px 0 2px;
-  margin: 0;
-  float: right;
+  padding: 0 2px 0 2px;
   background-color: white;
   color: #8bd201;
   font-size: 12px;
@@ -150,6 +151,15 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.addCardLarge {
+  margin-bottom: 15px;
+  padding: 10px 40px 10px 40px;
+  background-color: #ffffff;
+  color: #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
 .cdk-drag-placeholder {
   opacity: 0.3;
 }
@@ -172,6 +182,6 @@ mdb-card-body {
 
 .btnCard{
   float: right;
-  margin-top: -30px;
-  margin-right: 5px;
+  margin-top: 0;
+  margin-right: 10px;
 }
