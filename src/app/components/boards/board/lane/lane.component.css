@@ -115,6 +115,15 @@ textarea.md-textarea-auto {
   cursor: pointer;
 }
 
+.cardVoteDown {
+  padding: 0 2px 0 2px;
+  background-color: white;
+  color: #ff0000;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
 .fa-circle {
   font-size: 10px;
   padding: 0;

@@ -148,6 +148,16 @@ export class LaneComponent implements OnInit {
       .subscribe(data => {});
   }
 
+  voteCardDown(laneId: string, card: Card){
+    if (card.rating > 0){
+      card.rating -= 1;
+      this.boardService
+        .updateCard(this.board.id, laneId, card.id, card)
+        .pipe(first())
+        .subscribe(data => {});
+    }
+  }
+
   voteArray(rating: number) {
     const arrayOfVotes = [];
     for (let i = 1; i <= rating; i++) {
