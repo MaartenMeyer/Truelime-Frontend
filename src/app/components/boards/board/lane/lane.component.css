@@ -118,7 +118,8 @@ textarea.md-textarea-auto {
 .fa-circle {
   font-size: 10px;
   padding: 0;
-  color: #8bd201;
+  /*color: #8bd201; */
+  color: grey;
   margin-left: 5px;
 }
 
