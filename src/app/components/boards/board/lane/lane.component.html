@@ -93,24 +93,20 @@
             <i *ngFor="let vote of voteArray(card.rating)" class="fas fa-circle"></i>
           </div>
 
-          <div class="col-md-4">
-            <div class="col-md-6">
-              <i
+          <div class="btnCard">
+              <button
                 class="far fa-thumbs-up cardVote"
                 mdbBtn
                 mdbWavesEffect
                 (click)="voteCard(lane.id, card)"
-              ></i>
-            </div>
+              ></button>
   
-            <div class="col-md-6">
-              <i
+              <button
                 class="far fa-thumbs-down cardVoteDown"
                 mdbBtn
                 mdbWavesEffect
                 (click)="voteCardDown(lane.id, card)"
-              ></i>
-            </div>
+              ></button>
             
           </div>
           
