@@ -109,6 +109,7 @@ textarea.md-textarea-auto {
 
 .cardVote {
   padding: 0 2px 0 2px;
+  margin-right: 0;
   background-color: white;
   color: #8bd201;
   font-size: 12px;
@@ -117,12 +118,12 @@ textarea.md-textarea-auto {
 
 .cardVoteDown {
   padding: 0 2px 0 2px;
+  /*margin-right: -10px;*/
   background-color: white;
   color: #ff0000;
   font-size: 12px;
   cursor: pointer;
 }
-
 
 .fa-circle {
   font-size: 10px;
@@ -135,6 +136,11 @@ textarea.md-textarea-auto {
 .rowFooterCard {
   align-items: center;
   min-height: 24px;
+}
+
+.btnCol {
+  text-align: right;
+  margin-right: 5px;
 }
 
 .deleteLane {
