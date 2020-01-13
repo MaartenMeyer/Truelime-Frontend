@@ -53,6 +53,7 @@
       <mdb-card-body cdkDragHandle class="card-message" *ngIf="isCard(card)" [ngStyle]="{'background-color': card.color}">
         <div class="btnCard">
           <button
+            *ngIf="isAuthorized()"
             class="deleteCard"
             mdbDropdownToggle
             mdbBtn
