@@ -9,15 +9,21 @@
     "build": "ng build",
     "test": "ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e --protractor-config=e2e/protractor-ci.conf.js"
   },
   "private": true,
   "engines": {
     "node": "^10.15.3",
     "npm": "^6.9.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged & npm run lint",
+      "pre-push": "npm test & npm run e2e"
+    }
+  },
   "dependencies": {
-    "@angular-devkit/build-angular": "~0.803.17",
+    "@angular-devkit/build-angular": "^0.803.22",
     "@angular/animations": "~8.2.13",
     "@angular/cdk": "^8.2.3",
     "@angular/cli": "~8.3.17",
@@ -41,6 +47,7 @@
     "mdbootstrap": "^4.10.1",
     "ngx-autosize": "^1.7.2",
     "path": "^0.12.7",
+    "prettier": "^1.19.1",
     "rxjs": "~6.4.0",
     "sonar-scanner": "^3.1.0",
     "tslib": "^1.10.0",
