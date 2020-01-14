@@ -32,7 +32,6 @@ describe('BoardService', () => {
   describe('boards', () => {
     const card1: Card = {
       id: 'card-1',
-      title: 'Card 1',
       message: 'Message',
       author: null,
       rating: 1,
@@ -41,7 +40,6 @@ describe('BoardService', () => {
     };
     const card2: Card = {
       id: 'card-2',
-      title: 'Card 2',
       message: 'Message',
       author: null,
       rating: 2,
