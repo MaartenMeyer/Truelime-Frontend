@@ -25,6 +25,12 @@ describe('NewBoardComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call the method submitBoard', () => {
+    spyOn(component, 'submitBoard')
+    component.submitBoard()
+    expect(component.submitBoard).toHaveBeenCalled()
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
