@@ -148,8 +148,8 @@ export class LaneComponent implements OnInit {
       .subscribe(data => {});
   }
 
-  voteCardDown(laneId: string, card: Card){
-    if (card.rating > 0){
+  voteCardDown(laneId: string, card: Card) {
+    if (card.rating > 0) {
       card.rating -= 1;
       this.boardService
         .updateCard(this.board.id, laneId, card.id, card)

@@ -15,6 +15,7 @@
           class="form-control titleInput"
           [(ngModel)]="lane.title"
           (change)="onLaneTitleChange(lane.id, lane)"
+          [disabled]="!isAuthorized()"
         />
         <label for="title" class=""></label>
       </div>
@@ -50,6 +51,27 @@
     </div>
     <!--  Begin of card  -->
     <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
+      <!-- If card is category -->
+      <mdb-card-body cdkDragHandle class="category rounded" *ngIf="!isCard(card)" [ngStyle]="{'background-color': card.color}">
+        <span class="md-form">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="card.message"
+            class="categoryTitleInput text-white text-center border-0"
+            (change)="updateCard(lane.id, card)"
+          >
+        </span>
+        <i
+          class="far fa-trash-alt cardSettings"
+          mdbBtn
+          mdbWavesEffect
+          (click)="deleteCard(lane.id, card.id)"
+          *ngIf="isAuthorized()"
+        ></i>
+      </mdb-card-body>
+      <!--  End of category part  -->
+      <!--   If card is card   -->
       <mdb-card-body cdkDragHandle class="card-message" *ngIf="isCard(card)" [ngStyle]="{'background-color': card.color}">
         <div class="btnCard">
           <button
@@ -109,6 +131,7 @@
           </div>
         </div>
       </mdb-card-body>
+      <!--  End of card is card  -->
     </mdb-card>
     <!--  End of card  -->
   </div>

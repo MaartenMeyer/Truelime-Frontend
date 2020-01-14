@@ -11,12 +11,12 @@
 }
 
 .category {
-  padding-top: 20px;
+  padding: 10px 0 10px 0;
   background-color: rgba(0,0,0,.7);
 }
 
 .categoryTitleInput {
-  margin-right: 10px;
+  margin-right: -13px;
   width: 90%;
 }
 
@@ -91,20 +91,19 @@ textarea.md-textarea-auto {
 
 .md-form textarea.md-textarea.md-textarea-auto {
   overflow-y: hidden !important;
-  margin-left: 35px;
+  margin-left: 20px;
   margin-top: 25px;
   padding-top: 0;
 }
 
 .cardSettings {
   padding: 0 2px 0 2px;
-  margin: 0;
   float: right;
   background-color: #ffffff;
   color: #ed5603;
   font-size: 12px;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .cardVote {
@@ -118,7 +117,6 @@ textarea.md-textarea-auto {
 
 .cardVoteDown {
   padding: 0 2px 0 2px;
-  /*margin-right: -10px;*/
   background-color: white;
   color: #ff0000;
   font-size: 12px;
@@ -128,7 +126,6 @@ textarea.md-textarea-auto {
 .fa-circle {
   font-size: 10px;
   padding: 0;
-  /*color: #8bd201; */
   color: grey;
   margin-left: 5px;
 }
@@ -200,4 +197,9 @@ textarea.md-textarea-auto {
   float: right;
   margin-top: 0;
   margin-right: 10px;
+}
+
+.dropdown-menu {
+  top: -28px;
+  left: -155px;
 }

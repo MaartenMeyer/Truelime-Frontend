@@ -22,7 +22,7 @@ export class CategoryModalComponent implements OnInit {
 
   ngOnInit() {
     this.categoryForm = this.formBuilder.group({
-      title: ['', [Validators.required]],
+      message: ['', [Validators.required]],
       type: ['category']
     });
   }
