@@ -9,12 +9,18 @@
     "build": "ng build",
     "test": "ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e --protractor-config=e2e/protractor-ci.conf.js"
   },
   "private": true,
   "engines": {
     "node": "^10.15.3",
     "npm": "^6.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged & npm run lint",
+      "pre-push": "npm test & npm run e2e"
+    }
   },
   "dependencies": {
     "@angular-devkit/build-angular": "~0.803.17",
