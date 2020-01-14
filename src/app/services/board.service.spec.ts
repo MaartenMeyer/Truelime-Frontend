@@ -141,5 +141,45 @@ describe('BoardService', () => {
         message: `Lane deleted`
       });
     });
+
+    it('createCard() should create new card', () => {
+      boardService.createCard(board.id, lane.id , card1).subscribe(data => {
+        expect(data.id).toEqual(card1.id);
+      });
+      const req = httpMock.expectOne(`${environment.baseUrl}/boards/${board.id}/lanes/${lane.id}/cards`);
+      expect(req.request.method).toBe('POST');
+      req.flush(card1);
+    });
+
+    it('updateCard() should update card', () => {
+      boardService.updateCard(board.id, lane.id, card1.id, card2).subscribe(data => {
+        expect(data.id).toEqual(card2.id);
+      });
+      const req = httpMock.expectOne(`${environment.baseUrl}/boards/${board.id}/lanes/${lane.id}/cards/${card1.id}`);
+      expect(req.request.method).toBe('PUT');
+      req.flush(card2);
+    });
+
+    it('deleteCard() should delete card', () => {
+      boardService.deleteCard(board.id, lane.id, card1.id).subscribe((data: any) => {
+        expect(data.message).toBe(`Card deleted`);
+      });
+      const req = httpMock.expectOne(`${environment.baseUrl}/boards/${board.id}/lanes/${lane.id}/cards/${card1.id}`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush({
+        message: `Card deleted`
+      });
+    });
+
+    it('deleteAllCards() should delete all cards', () => {
+      boardService.deleteAllCards(board.id).subscribe((data: any) => {
+        expect(data.message).toBe(`Cards deleted`);
+      });
+      const req = httpMock.expectOne(`${environment.baseUrl}/boards/${board.id}/cards`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush({
+        message: `Cards deleted`
+      });
+    });
   });
 });
