@@ -16,6 +16,12 @@
     "node": "^10.15.3",
     "npm": "^6.9.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged & npm run lint",
+      "pre-push": "npm test & npm run e2e"
+    }
+  },
   "dependencies": {
     "@angular-devkit/build-angular": "^0.803.22",
     "@angular/animations": "~8.2.13",
