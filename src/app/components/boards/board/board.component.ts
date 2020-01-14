@@ -59,7 +59,7 @@ export class BoardComponent implements OnInit, OnDestroy {
   }
 
   isAuthorized(): boolean {
-    return this.currentUser.id === this.board.owner.id;
+    return this.currentUser === null ? false : this.currentUser.id === this.board.owner.id;
   }
 
   loadBoard() {

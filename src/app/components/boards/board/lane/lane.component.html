@@ -15,12 +15,14 @@
           class="form-control titleInput"
           [(ngModel)]="lane.title"
           (change)="onLaneTitleChange(lane.id, lane)"
+          [disabled]="!isAuthorized()"
         />
         <label for="title" class=""></label>
       </div>
       <div class="col-md-2 pl-0 pr-0">
         <button
           class="deleteLane"
+          *ngIf="isAuthorized()"
           (click)="deleteLane(lane.id)"
           mdbBtn
           mdbWavesEffect
@@ -47,95 +49,99 @@
         </div>
       </div>
     </div>
+    <!--  Begin of card  -->
     <mdb-card [attr.id]="getId(lane, card)" cdkDrag *ngFor="let card of lane.cards">
-        <mdb-card-header class="category rounded" cdkDragHandle *ngIf="!isCard(card)" [ngStyle]="{'background-color': card.color}">
-            <span class="md-form">
-              <input
-                mdbInput
-                type="text"
-                [(ngModel)]="card.title"
-                class="categoryTitleInput text-white text-center border-bottom-0"
-                (change)="updateCard(lane.id, card)"
-              />
-            </span>
-            <i
-              class="far fa-trash-alt cardSettings"
-              mdbBtn
-              mdbWavesEffect
-              (click)="deleteCard(lane.id, card.id)"
-            ></i>
-          </mdb-card-header>
-      <mdb-card-header cdkDragHandle *ngIf="isCard(card)" [ngStyle]="{'background-color': card.color}">
-        <div class="col-md-11 pl-0 pr-0">
-          <span class="md-form">
+      <!-- If card is category -->
+      <mdb-card-body cdkDragHandle class="category rounded" *ngIf="!isCard(card)" [ngStyle]="{'background-color': card.color}">
+        <span class="md-form">
           <input
             mdbInput
             type="text"
-            [(ngModel)]="card.title"
-            class="cardTitleInput text-center border-bottom-0"
+            [(ngModel)]="card.message"
+            class="categoryTitleInput text-white text-center border-0"
             (change)="updateCard(lane.id, card)"
-          />
+          >
         </span>
-        </div>
-        <div class="btnCard">
-        <button
-          class="deleteCard"
-          mdbDropdownToggle
+        <i
+          class="far fa-trash-alt cardSettings"
           mdbBtn
           mdbWavesEffect
           (click)="deleteCard(lane.id, card.id)"
-        >
-          <mdb-icon far icon="trash-alt"></mdb-icon>
-        </button>
-        <div class="btn-group" mdbDropdown>
-            <button
-            class="editCard"
+          *ngIf="isAuthorized()"
+        ></i>
+      </mdb-card-body>
+      <!--  End of category part  -->
+      <!--   If card is card   -->
+      <mdb-card-body cdkDragHandle class="card-message" *ngIf="isCard(card)" [ngStyle]="{'background-color': card.color}">
+        <div class="btnCard">
+          <button
+            *ngIf="isAuthorized()"
+            class="deleteCard"
             mdbDropdownToggle
             mdbBtn
             mdbWavesEffect
+            (click)="deleteCard(lane.id, card.id)"
           >
-            <mdb-icon fas icon="cog"></mdb-icon>
+            <mdb-icon far icon="trash-alt"></mdb-icon>
           </button>
-          <div class="dropdown-menu dropdown-primary">
-              <a class="dropdown-item"
-                (click)="openColorModal(lane.id, card)">Kies kleur
-              </a>
+          <div class="btn-group" mdbDropdown>
+            <button
+              (click)="openColorModal(lane.id, card)"
+              class="editCard"
+              mdbDropdownToggle
+              mdbBtn
+              mdbWavesEffect
+            >
+              <mdb-icon fas icon="palette"></mdb-icon>
+            </button>
           </div>
         </div>
-        </div>
-      </mdb-card-header>
-
-      <mdb-card-body class="card-message" *ngIf="isCard(card)">
         <div class="row">
           <div class="col-md-12 pl-1">
             <span class="md-form">
               <textarea
+                autosize
                 mdbInput
                 type="text"
                 [(ngModel)]="card.message"
-                class="md-textarea form-control text-center border-bottom-0 pb-0"
+                class="md-textarea md-textarea-auto form-control text-center border-bottom-0 pb-0"
                 (change)="updateCard(lane.id, card)"
               ></textarea>
             </span>
           </div>
         </div>
-      </mdb-card-body>
-      <mdb-card-footer cdkDragHandle *ngIf="isCard(card)">
         <div class="row rowFooterCard">
-          <div class="col-2"></div>
-          <div class="col-8" >
-             <i *ngFor="let vote of voteArray(card.rating)" class="fas fa-circle"></i>
+          <div class="col"></div>
+          <div class="col">
+            <i *ngFor="let vote of voteArray(card.rating)" class="fas fa-circle"></i>
           </div>
-          <div class="col-2">
-            <i
-              class="far fa-thumbs-up cardVote"
-              mdbBtn
-              mdbWavesEffect
-              (click)="voteCard(lane.id, card)"
-            ></i>
+          <div class="col btnCol">
+              <button
+                class="far fa-thumbs-up cardVote"
+                mdbBtn
+                mdbWavesEffect
+                (click)="voteCard(lane.id, card)"
+              ></button>
+              <button
+                class="far fa-thumbs-down cardVoteDown"
+                mdbBtn
+                mdbWavesEffect
+                (click)="voteCardDown(lane.id, card)"
+              ></button>
           </div>
         </div>
-      </mdb-card-footer>
+      </mdb-card-body>
+      <!--  End of card is card  -->
     </mdb-card>
+    <!--  End of card  -->
+  </div>
+  <div class="addCard">
+    <button
+      class="addCardLarge"
+      mdbBtn
+      mdbWavesEffect
+      (click)="openCardModal(lane.id)">
+      <mdb-icon fas icon="plus"></mdb-icon>
+    </button>
   </div>
 </div>

@@ -9,6 +9,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@a
 import { Card } from '@app/models/card';
 import { CategoryModalComponent } from '../modals/category-modal/category-modal.component';
 import { ColorpickerModalComponent } from '../modals/colorpicker-modal/colorpicker-modal.component';
+import {User} from '@app/models/user';
+import {AuthService} from '@app/services/auth.service';
 
 @Component({
   selector: 'app-lane',
@@ -21,11 +23,14 @@ export class LaneComponent implements OnInit {
   connectedTo = [];
   mdbModalRef: MDBModalRef;
   selectedVote = 0;
+  currentUser: User;
 
   constructor(
     private boardService: BoardService,
     private mdbModalService: MDBModalService,
+    private authenticationService: AuthService
   ) {
+    this.currentUser = this.authenticationService.currentUserValue;
   }
 
   ngOnInit() {
@@ -143,13 +148,25 @@ export class LaneComponent implements OnInit {
       .subscribe(data => {});
   }
 
+  voteCardDown(laneId: string, card: Card) {
+    if (card.rating > 0) {
+      card.rating -= 1;
+      this.boardService
+        .updateCard(this.board.id, laneId, card.id, card)
+        .pipe(first())
+        .subscribe(data => {});
+    }
+  }
+
   voteArray(rating: number) {
     const arrayOfVotes = [];
     for (let i = 1; i <= rating; i++) {
-      if (arrayOfVotes.length <= 10) {
-        arrayOfVotes.push(1);
-      }
+      arrayOfVotes.push(1);
     }
     return arrayOfVotes;
+  }
+
+  isAuthorized(): boolean {
+    return this.currentUser === null ? false : this.currentUser.id === this.board.owner.id;
   }
 }

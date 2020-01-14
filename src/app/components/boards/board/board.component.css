@@ -6,6 +6,7 @@
   background-image: url('../../../../assets/images/backgroundOverlay.png');
   overflow: hidden;
   height: max-content;
+  min-height: 100vh;
   width: 100%;
   text-align: center;
   background-position: center;
@@ -106,7 +107,7 @@
 }
 
 mdb-card-body {
-  padding: 0px 0px 0px 10px;
+  padding: 0 0 0 10px;
   margin-bottom: 10px;
 }
 

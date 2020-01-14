@@ -10,18 +10,13 @@
   margin-top: -25px;
 }
 
-.cardTitleInput {
-  margin-right: 10px;
-  width: 90%;
-}
-
 .category {
-  padding-top: 20px;
+  padding: 10px 0 10px 0;
   background-color: rgba(0,0,0,.7);
 }
 
 .categoryTitleInput {
-  margin-right: 10px;
+  margin-right: -13px;
   width: 90%;
 }
 
@@ -86,27 +81,44 @@
 }
 
 mdb-card-body {
-  padding: 0px 0px 0px 10px;
-  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 0 0 0 10px;
+}
+
+textarea.md-textarea-auto {
+  resize: none;
+}
+
+.md-form textarea.md-textarea.md-textarea-auto {
+  overflow-y: hidden !important;
+  margin-left: 20px;
+  margin-top: 25px;
+  padding-top: 0;
 }
 
 .cardSettings {
   padding: 0 2px 0 2px;
-  margin: 0;
   float: right;
   background-color: #ffffff;
   color: #ed5603;
   font-size: 12px;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .cardVote {
-  padding: 0px 2px 0 2px;
-  margin: 0;
-  float: right;
+  padding: 0 2px 0 2px;
+  margin-right: 0;
   background-color: white;
   color: #8bd201;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cardVoteDown {
+  padding: 0 2px 0 2px;
+  background-color: white;
+  color: #ff0000;
   font-size: 12px;
   cursor: pointer;
 }
@@ -114,13 +126,18 @@ mdb-card-body {
 .fa-circle {
   font-size: 10px;
   padding: 0;
-  color: #8bd201;
+  color: grey;
   margin-left: 5px;
 }
 
 .rowFooterCard {
   align-items: center;
   min-height: 24px;
+}
+
+.btnCol {
+  text-align: right;
+  margin-right: 5px;
 }
 
 .deleteLane {
@@ -147,6 +164,19 @@ mdb-card-body {
   cursor: pointer;
 }
 
+.addCardLarge {
+  margin-bottom: 15px;
+  padding: 10px 40px 10px 40px;
+  background-color: #ffffff;
+  color: #8bd201;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.3;
+}
+
 .deleteCard {
   padding: 2px 2px 0 2px;
   background-color: #ffffff;
@@ -165,6 +195,11 @@ mdb-card-body {
 
 .btnCard{
   float: right;
-  margin-top: -30px;
-  margin-right: 5px;
+  margin-top: 0;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  top: -28px;
+  left: -155px;
 }

@@ -38,6 +38,7 @@
                   <mdb-icon fas icon="edit"></mdb-icon>
                 </button>
                 <button
+                  *ngIf="isAuthorized()"
                   mdbBtn
                   mdbWavesEffect
                   type="button"

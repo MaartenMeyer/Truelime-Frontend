@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {AutosizeModule} from 'ngx-autosize';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { LaneModalComponent } from './components/boards/board/modals/lane-modal/
 import { BoardModalComponent } from './components/boards/board/modals/board-modal/board-modal.component';
 import { CategoryModalComponent } from './components/boards/board/modals/category-modal/category-modal.component';
 import { ColorpickerModalComponent } from './components/boards/board/modals/colorpicker-modal/colorpicker-modal.component';
+import { ResetPasswordComponent } from './components/settings/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { ColorpickerModalComponent } from './components/boards/board/modals/colo
     SettingsComponent,
     CardModalComponent,
     LaneModalComponent,
-    BoardModalComponent
+    BoardModalComponent,
+    ResetPasswordComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),
@@ -39,6 +42,7 @@ import { ColorpickerModalComponent } from './components/boards/board/modals/colo
     BrowserModule,
     BoardsModule,
     HttpClientModule,
+    AutosizeModule,
     ReactiveFormsModule,
     AppRoutingModule,
   ],
