@@ -10,17 +10,17 @@
       <input
         mdbInput
         type="text"
-        id="title"
+        id="message"
         class="form-control"
-        formControlName="title"
+        formControlName="message"
         [ngClass]="{
-             'is-invalid': form.title.invalid && ((form.title.dirty || form.title.touched) || submitted)
+             'is-invalid': form.message.invalid && ((form.message.dirty || form.message.touched) || submitted)
             }"
         required
       >
-      <label for="title" class="">Titel</label>
-      <div *ngIf="(form.title.invalid && (form.title.touched)) || submitted" class="invalid-feedback">
-        <div *ngIf="form.title?.errors?.required">Titel is verplicht!</div>
+      <label for="message" class="">Categorie titel</label>
+      <div *ngIf="(form.message.invalid && (form.message.touched)) || submitted" class="invalid-feedback">
+        <div *ngIf="form.message?.errors?.required">Categorie titel is verplicht!</div>
       </div>
     </div>
     <div class="btnDiv">
