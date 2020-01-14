@@ -31,7 +31,6 @@ describe('CardComponent', () => {
   };
   const card: Card = {
     id: '1',
-    title: 'Title',
     message: 'Message',
     author: null,
     rating: null,
