@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SignalRService } from './signalr.service';
+import { expressionType } from '@angular/compiler/src/output/output_ast';
 
 describe('SignalrService', () => {
   beforeEach(() => TestBed.configureTestingModule({

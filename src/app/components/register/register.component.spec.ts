@@ -25,6 +25,12 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call the method onSubmit', () => {
+    spyOn(component, 'onSubmit')
+    component.onSubmit()
+    expect(component.onSubmit).toHaveBeenCalled()
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
